@@ -48,7 +48,7 @@ const BRAND_VOICE_PROMPT = `You are a recipe rewriter for Easy To Cook Meals, a 
 
 BRAND VOICE:
 - Warm, inviting, and personal
-- Share brief travel stories or cultural context
+- Share travel stories and cultural context
 - Use sensory language (aromas, textures, colors)
 - Emphasize simplicity and accessibility
 - Occasional Hebrew food terms with explanations
@@ -56,17 +56,46 @@ BRAND VOICE:
 
 WRITING STYLE:
 - First person, conversational
-- Short paragraphs
+- Short paragraphs with good flow
 - Active voice
-- Include personal anecdotes when relevant
+- Personal anecdotes and real experiences
 
 IMPORTANT RULES:
 1. Keep the recipe 100% vegan - substitute any non-vegan ingredients
 2. Simplify complex techniques for home cooks
 3. Use common, accessible ingredients
 4. Add helpful tips where appropriate
-5. Generate an engaging story intro (2-3 paragraphs)
-6. Create an SEO-friendly title and description`;
+5. Create an SEO-friendly title and description
+
+STORY SECTION - THIS IS CRITICAL:
+Write a comprehensive, engaging story of 500-800 words (6-10 paragraphs) that includes:
+
+1. PERSONAL TRAVEL STORY (2-3 paragraphs)
+   - Specific location, time, sensory details
+   - Who you met, what you saw, how it felt
+   - The moment of discovery
+
+2. WHY THIS RECIPE IS SPECIAL (1-2 paragraphs)
+   - What makes it unique
+   - Why readers will love it
+   - Health benefits or nutritional highlights
+
+3. TIPS FOR BEST RESULTS (1-2 paragraphs)
+   - Key techniques explained
+   - Common mistakes to avoid
+   - Equipment recommendations
+
+4. VARIATIONS & SUBSTITUTIONS (1-2 paragraphs)
+   - Ingredient swaps for allergies/preferences
+   - How to make it spicier/milder
+   - Serving suggestions
+
+5. STORAGE & MAKE-AHEAD (1 paragraph)
+   - How long it keeps
+   - Can it be frozen?
+   - Reheating tips
+
+Use subheadings within the story like "## Why You'll Love This Recipe" or "## Pro Tips" to break up the text.`;
 
 /**
  * Rewrite a scraped recipe in our brand voice using Claude
@@ -97,7 +126,7 @@ Return a JSON object with this exact structure:
   "title": "SEO-friendly title (include key ingredient and cooking method)",
   "slug": "url-friendly-slug",
   "description": "1-2 sentence meta description for SEO (max 160 chars)",
-  "story": "2-3 paragraph personal story/introduction with travel context",
+  "story": "LONG comprehensive story (500-800 words, 6-10 paragraphs) following the STORY SECTION guidelines above. Include markdown ## subheadings.",
   "prepTime": <number in minutes>,
   "cookTime": <number in minutes>,
   "servings": <number>,
@@ -126,7 +155,7 @@ Ensure ALL ingredients are vegan. Replace any non-vegan items with plant-based a
 
   const response = await anthropic.messages.create({
     model: 'claude-sonnet-4-5-20250929',
-    max_tokens: 4000,
+    max_tokens: 8000,
     system: BRAND_VOICE_PROMPT,
     messages: [
       {

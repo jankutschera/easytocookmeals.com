@@ -13,6 +13,7 @@ import { RecipeMeta } from './RecipeMeta';
 import { JumpToRecipeButton } from './JumpToRecipeButton';
 import { UnitToggle } from './UnitToggle';
 import { CookMode } from './CookMode';
+import { StoryContent } from './StoryContent';
 
 // Type for ingredient groups with guaranteed ingredients array
 type IngredientGroupWithIngredients = IngredientGroup & {
@@ -165,8 +166,8 @@ export function RecipeCard({
 
         {/* Story section */}
         {recipe.story && (
-          <section className="prose prose-lg max-w-none text-gray-700">
-            <p>{recipe.story}</p>
+          <section className="prose prose-lg max-w-none">
+            <StoryContent content={recipe.story} />
           </section>
         )}
 
