@@ -1,0 +1,640 @@
+{
+  "recipes": [
+    {
+      "title": "Authentic Falafel Recipe (Easy Baked, Air Fryer or Fried Method)",
+      "slug": "authentic-falafel-my-middle-eastern-discovery-that-changed-everything",
+      "description": "Traditional Middle Eastern falafel made with dried chickpeas, fresh herbs, and aromatic spices. Includes three cooking methods: air fryer, baked, and deep-fried.",
+      "story": "The author, an Israeli vegan chef, shares discovering authentic falafel in Jerusalem's Old City. Following 'the irresistible scent of spices and sizzling oil,' they encountered an elderly vendor whose freshly fried falafel in pita with tahini and pickled vegetables transformed their culinary perspective.",
+      "prepTime": 20,
+      "cookTime": 20,
+      "additionalTime": 1440,
+      "totalTime": 1480,
+      "servings": 24,
+      "course": "Main Course",
+      "cuisine": "Middle Eastern",
+      "keywords": ["falafel", "chickpeas", "vegan", "middle eastern", "air fryer", "baked"],
+      "ingredientGroups": [
+        {
+          "name": "Falafel Base",
+          "ingredients": [
+            {
+              "amount": 2,
+              "unit": "cups",
+              "name": "dried chickpeas",
+              "notes": "measured before soaking"
+            },
+            {
+              "amount": 1,
+              "unit": "cup",
+              "name": "flat-leaf parsley",
+              "notes": "packed"
+            },
+            {
+              "amount": 0.5,
+              "unit": "cup",
+              "name": "mint leaves or cilantro",
+              "notes": "optional"
+            },
+            {
+              "amount": 1,
+              "unit": "",
+              "name": "yellow onion",
+              "notes": ""
+            },
+            {
+              "amount": 6,
+              "unit": "cloves",
+              "name": "garlic",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "name": "Spices & Seasonings",
+          "ingredients": [
+            {
+              "amount": 2,
+              "unit": "teaspoons",
+              "name": "ground coriander",
+              "notes": ""
+            },
+            {
+              "amount": 1.5,
+              "unit": "teaspoons",
+              "name": "ground cumin",
+              "notes": ""
+            },
+            {
+              "amount": 1.5,
+              "unit": "teaspoons",
+              "name": "salt",
+              "notes": ""
+            },
+            {
+              "amount": 0.25,
+              "unit": "teaspoon",
+              "name": "black pepper",
+              "notes": ""
+            },
+            {
+              "amount": 0.25,
+              "unit": "teaspoon",
+              "name": "cayenne pepper or chili powder",
+              "notes": ""
+            },
+            {
+              "amount": 2,
+              "unit": "teaspoons",
+              "name": "baking powder",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "name": "For Cooking",
+          "ingredients": [
+            {
+              "amount": 1,
+              "unit": "tablespoon",
+              "name": "olive oil",
+              "notes": "for air frying/baking"
+            },
+            {
+              "amount": 4,
+              "unit": "cups",
+              "name": "frying oil",
+              "notes": "for deep-frying, optional, up to 6 cups"
+            }
+          ]
+        }
+      ],
+      "instructions": [
+        {
+          "step": 1,
+          "text": "Soak chickpeas 24 hours in water until tripled in size"
+        },
+        {
+          "step": 2,
+          "text": "Blend herbs & spices: Combine parsley, mint, onion, garlic, coriander, cumin, salt, pepper, and cayenne in food processor"
+        },
+        {
+          "step": 3,
+          "text": "Add chickpeas: Include soaked drained chickpeas and baking powder; blend to coarse consistency (like sand)"
+        },
+        {
+          "step": 4,
+          "text": "Shape: Form 1-1.5 inch balls; flatten slightly"
+        },
+        {
+          "step": 5,
+          "text": "Cook via preferred method: Air Fryer at 400°F for 12-15 minutes, OR Oven at 350°F for 30 minutes (brush with oil), OR Deep Fry at 340°F for 3-4 minutes until golden"
+        }
+      ],
+      "nutrition": {
+        "servingSize": "1 falafel",
+        "calories": 58,
+        "protein": "3g",
+        "fat": "1g",
+        "carbohydrates": "9g",
+        "fiber": "2g",
+        "sodium": "180mg"
+      },
+      "notes": "Do not use canned chickpeas—dried soaked varieties are essential for proper texture. Store cooked falafel refrigerated for 2-3 days or frozen up to 3 months. Mixture should resemble coarse sand that holds together when pressed."
+    },
+    {
+      "title": "Vegan Sweet Potato Plantain Bowl with Quinoa & Chickpeas (30 Minutes)",
+      "slug": "vegan-sweet-potato-plantain-bowl-with-quinoa",
+      "description": "A vibrant Buddha bowl featuring roasted sweet potatoes, plantains, and crispy chickpeas on a bed of quinoa with parsley tahini sauce.",
+      "story": "The recipe celebrates the author's culinary discoveries in West Africa, specifically roasted sweet potatoes and plantains encountered during travels through Ghana. The author describes blending African staples with Mediterranean ingredients like tahini and fresh herbs to create a globally-inspired bowl representing her journey between Ghana and Israel.",
+      "prepTime": 20,
+      "cookTime": 25,
+      "totalTime": 45,
+      "servings": 4,
+      "course": "Main Course",
+      "cuisine": "African Fusion, Vegan",
+      "keywords": ["Buddha Bowl", "Plantain", "Quinoa Bowl", "Sweet Potato", "Vegan Bowl"],
+      "ingredientGroups": [
+        {
+          "name": "Quinoa Base",
+          "ingredients": [
+            {
+              "amount": 185,
+              "unit": "g",
+              "name": "quinoa",
+              "notes": ""
+            },
+            {
+              "amount": 480,
+              "unit": "ml",
+              "name": "vegetable broth or water with salt",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "name": "Roasted Vegetables",
+          "ingredients": [
+            {
+              "amount": 1,
+              "unit": "",
+              "name": "large sweet potato",
+              "notes": "~400g, peeled and diced"
+            },
+            {
+              "amount": 2,
+              "unit": "",
+              "name": "ripe plantains",
+              "notes": "sliced"
+            },
+            {
+              "amount": 250,
+              "unit": "g",
+              "name": "broccoli florets",
+              "notes": ""
+            },
+            {
+              "amount": 1,
+              "unit": "can",
+              "name": "chickpeas",
+              "notes": "240g, rinsed and dried"
+            },
+            {
+              "amount": 2,
+              "unit": "tbsp",
+              "name": "olive oil",
+              "notes": "divided, up to 3 tbsp"
+            },
+            {
+              "amount": 1,
+              "unit": "tsp",
+              "name": "paprika",
+              "notes": ""
+            },
+            {
+              "amount": 0,
+              "unit": "",
+              "name": "salt and pepper",
+              "notes": "to taste"
+            }
+          ]
+        },
+        {
+          "name": "Fresh Vegetables (Optional)",
+          "ingredients": [
+            {
+              "amount": 150,
+              "unit": "g",
+              "name": "kale or salad greens",
+              "notes": ""
+            },
+            {
+              "amount": 4,
+              "unit": "",
+              "name": "mini cucumbers",
+              "notes": "sliced"
+            },
+            {
+              "amount": 10,
+              "unit": "",
+              "name": "cherry tomatoes",
+              "notes": "halved"
+            },
+            {
+              "amount": 1,
+              "unit": "",
+              "name": "small beetroot",
+              "notes": "peeled and sliced"
+            }
+          ]
+        },
+        {
+          "name": "Parsley Tahini Sauce",
+          "ingredients": [
+            {
+              "amount": 60,
+              "unit": "ml",
+              "name": "tahini",
+              "notes": ""
+            },
+            {
+              "amount": 15,
+              "unit": "g",
+              "name": "parsley or cilantro",
+              "notes": ""
+            },
+            {
+              "amount": 1,
+              "unit": "clove",
+              "name": "garlic",
+              "notes": ""
+            },
+            {
+              "amount": 0.5,
+              "unit": "",
+              "name": "lime",
+              "notes": "juiced"
+            },
+            {
+              "amount": 80,
+              "unit": "ml",
+              "name": "water",
+              "notes": ""
+            },
+            {
+              "amount": 0,
+              "unit": "",
+              "name": "salt and pepper",
+              "notes": "to taste"
+            }
+          ]
+        },
+        {
+          "name": "Garnish",
+          "ingredients": [
+            {
+              "amount": 1,
+              "unit": "tbsp",
+              "name": "sesame seeds",
+              "notes": ""
+            },
+            {
+              "amount": 4,
+              "unit": "",
+              "name": "lime wedges",
+              "notes": ""
+            }
+          ]
+        }
+      ],
+      "instructions": [
+        {
+          "step": 1,
+          "text": "Preheat oven to 400°F (200°C) and line baking sheet"
+        },
+        {
+          "step": 2,
+          "text": "Cook quinoa in vegetable broth for 15-20 minutes until liquid absorbs"
+        },
+        {
+          "step": 3,
+          "text": "Toss sweet potatoes, plantains, and broccoli with olive oil and seasonings; spread on baking sheet"
+        },
+        {
+          "step": 4,
+          "text": "Toss chickpeas separately with oil and paprika; spread on other half"
+        },
+        {
+          "step": 5,
+          "text": "Roast all vegetables for 25 minutes, stirring halfway through"
+        },
+        {
+          "step": 6,
+          "text": "Prepare kale by massaging with salt to soften"
+        },
+        {
+          "step": 7,
+          "text": "Blend tahini, parsley, garlic, lime juice, water, salt, and pepper for sauce"
+        },
+        {
+          "step": 8,
+          "text": "Assemble bowls with quinoa, kale, roasted vegetables, fresh toppings, and drizzle with sauce"
+        }
+      ],
+      "nutrition": {
+        "servingSize": "1 bowl",
+        "calories": 550,
+        "protein": "15g",
+        "fat": "22g",
+        "saturatedFat": "3g",
+        "carbohydrates": "75g",
+        "fiber": "14g",
+        "sugar": "8g",
+        "sodium": "420mg",
+        "potassium": "950mg",
+        "vitaminA": "18500 IU",
+        "vitaminC": "120mg",
+        "calcium": "150mg",
+        "iron": "6.5mg"
+      },
+      "notes": "Roasting time varies depending on vegetable piece size. Remove vegetables earlier if needed, leaving chickpeas to crisp further. Select yellow plantains with brown spots—firm enough to maintain shape during roasting. All components store well refrigerated for up to 3 days; keep tahini sauce separate until serving."
+    },
+    {
+      "title": "Zucchini & Carrot Crustless Pizza",
+      "slug": "from-jerusalem-gardens-to-your-table-discovering-the-magic-of-zucchini-carrot-crustless-pizza",
+      "description": "A vibrant, veggie-packed crustless pizza that's light, nutrient-rich, and 100% plant-based. No dough, no gluten — just fresh, wholesome ingredients baked into a golden, dairy-free dish.",
+      "story": "The author discovered this concept in a Jerusalem vegan café, where the owner served a 'colorful frittata' called pizza. After perfecting it in Tel Aviv, they created a recipe blending ancient wisdom of Middle Eastern cooking with modern plant-based innovation.",
+      "prepTime": 15,
+      "cookTime": 30,
+      "totalTime": 45,
+      "servings": 4,
+      "course": "Main Course",
+      "cuisine": "Middle Eastern Fusion, Vegan",
+      "keywords": ["crustless pizza", "zucchini", "carrot", "chickpea flour", "gluten-free", "vegan"],
+      "ingredientGroups": [
+        {
+          "name": "Pizza Base",
+          "ingredients": [
+            {
+              "amount": 1,
+              "unit": "cup",
+              "name": "zucchini",
+              "notes": "spiralized or julienned"
+            },
+            {
+              "amount": 1,
+              "unit": "cup",
+              "name": "carrot",
+              "notes": "spiralized or grated"
+            },
+            {
+              "amount": 0.25,
+              "unit": "",
+              "name": "red onion",
+              "notes": "thinly sliced"
+            },
+            {
+              "amount": 0.5,
+              "unit": "cup",
+              "name": "chickpea flour (besan)",
+              "notes": ""
+            },
+            {
+              "amount": 0.5,
+              "unit": "cup",
+              "name": "water",
+              "notes": ""
+            },
+            {
+              "amount": 2,
+              "unit": "tbsp",
+              "name": "nutritional yeast",
+              "notes": ""
+            },
+            {
+              "amount": 0.5,
+              "unit": "tsp",
+              "name": "garlic powder",
+              "notes": ""
+            },
+            {
+              "amount": 0.5,
+              "unit": "tsp",
+              "name": "turmeric",
+              "notes": ""
+            },
+            {
+              "amount": 0,
+              "unit": "",
+              "name": "salt & pepper",
+              "notes": "to taste"
+            },
+            {
+              "amount": 1,
+              "unit": "tbsp",
+              "name": "olive oil",
+              "notes": "for brushing"
+            }
+          ]
+        },
+        {
+          "name": "Toppings",
+          "ingredients": [
+            {
+              "amount": 0,
+              "unit": "",
+              "name": "fresh herbs",
+              "notes": "dill or parsley for garnish"
+            },
+            {
+              "amount": 0,
+              "unit": "",
+              "name": "vegan cheese shreds",
+              "notes": "optional topping"
+            }
+          ]
+        }
+      ],
+      "instructions": [
+        {
+          "step": 1,
+          "text": "Preheat oven to 375°F (190°C); grease pizza pan or line with parchment"
+        },
+        {
+          "step": 2,
+          "text": "Whisk chickpea flour, water, nutritional yeast, garlic powder, turmeric, salt, and pepper into smooth batter"
+        },
+        {
+          "step": 3,
+          "text": "Combine zucchini, carrot, and red onion in bowl; pour batter over and mix thoroughly"
+        },
+        {
+          "step": 4,
+          "text": "Transfer to pan, spread evenly; optionally add vegan cheese"
+        },
+        {
+          "step": 5,
+          "text": "Bake 25-30 minutes until golden and firm"
+        },
+        {
+          "step": 6,
+          "text": "Cool slightly, slice, garnish with fresh herbs, and serve warm"
+        }
+      ],
+      "nutrition": {
+        "servingSize": "1 slice (1/4 of pizza)",
+        "calories": 165,
+        "protein": "6g",
+        "fat": "5g",
+        "carbohydrates": "24g",
+        "fiber": "5g",
+        "sodium": "150mg"
+      },
+      "notes": "Squeeze excess moisture from zucchini beforehand. Reheats well at 350°F for 10 minutes. Add red pepper flakes for spice. Adaptable to other vegetables like bell peppers, spinach, or mushrooms."
+    },
+    {
+      "title": "Homemade Oreo-Inspired Vegan Cookies",
+      "slug": "healthy-vegan-oreos",
+      "description": "Healthier vegan version of classic Oreo cookies with chocolate wafers and creamy vanilla filling, made without high fructose corn syrup or trans fats.",
+      "story": "These cookies avoid 'high fructose corn syrup or trans fat' found in commercial versions, offering a healthier homemade alternative.",
+      "prepTime": 40,
+      "cookTime": 10,
+      "totalTime": 50,
+      "servings": 24,
+      "course": "Snack, Dessert",
+      "cuisine": "American",
+      "keywords": ["baking", "vegan", "cookies", "oreos", "healthy dessert"],
+      "ingredientGroups": [
+        {
+          "name": "Dough",
+          "ingredients": [
+            {
+              "amount": 0.75,
+              "unit": "cup",
+              "name": "spelt flour or oat flour",
+              "notes": ""
+            },
+            {
+              "amount": 6,
+              "unit": "tbsp",
+              "name": "Dutch cocoa powder",
+              "notes": ""
+            },
+            {
+              "amount": 6,
+              "unit": "tbsp",
+              "name": "unrefined sugar",
+              "notes": "or xylitol for sugar-free"
+            },
+            {
+              "amount": 0.25,
+              "unit": "tsp",
+              "name": "salt",
+              "notes": ""
+            },
+            {
+              "amount": 0.25,
+              "unit": "tsp",
+              "name": "baking soda",
+              "notes": ""
+            },
+            {
+              "amount": 1,
+              "unit": "tsp",
+              "name": "vanilla extract",
+              "notes": ""
+            },
+            {
+              "amount": 0.25,
+              "unit": "cup",
+              "name": "vegetable or coconut oil",
+              "notes": ""
+            },
+            {
+              "amount": 3,
+              "unit": "tbsp",
+              "name": "oat milk or alternative",
+              "notes": ""
+            },
+            {
+              "amount": 2,
+              "unit": "tbsp",
+              "name": "pure maple syrup",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "name": "Vegan Cream Filling",
+          "ingredients": [
+            {
+              "amount": 0.5,
+              "unit": "cup",
+              "name": "powdered sugar",
+              "notes": "or sugar-free alternative"
+            },
+            {
+              "amount": 0.5,
+              "unit": "tsp",
+              "name": "pure vanilla extract",
+              "notes": ""
+            },
+            {
+              "amount": 0.25,
+              "unit": "cup",
+              "name": "melted coconut butter or non-hydrogenated shortening",
+              "notes": ""
+            }
+          ]
+        }
+      ],
+      "instructions": [
+        {
+          "step": 1,
+          "text": "Beat filling ingredients until smooth"
+        },
+        {
+          "step": 2,
+          "text": "Combine dry cookie ingredients; mix wet ingredients separately"
+        },
+        {
+          "step": 3,
+          "text": "Combine wet and dry; refrigerate 30 minutes"
+        },
+        {
+          "step": 4,
+          "text": "Preheat oven to 300°F"
+        },
+        {
+          "step": 5,
+          "text": "Roll dough thin and cut circles"
+        },
+        {
+          "step": 6,
+          "text": "Bake 10 minutes on greased tray"
+        },
+        {
+          "step": 7,
+          "text": "Cool 10 minutes before removing"
+        },
+        {
+          "step": 8,
+          "text": "Sandwich filling between cookie pairs; refrigerate to set"
+        },
+        {
+          "step": 9,
+          "text": "Store in refrigerator"
+        }
+      ],
+      "nutrition": {
+        "servingSize": "1 cookie",
+        "calories": 72,
+        "protein": "1g",
+        "fat": "3g",
+        "carbohydrates": "11g",
+        "fiber": "1g",
+        "sugar": "7g"
+      },
+      "notes": "Customize flour and sweetness to dietary preferences. Shelf life: one week refrigerated."
+    }
+  ]
+}

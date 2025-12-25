@@ -1,0 +1,289 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ========================================
+   TrueBrew Birdie Design System
+   easytocookmeals.com Theme
+   ======================================== */
+
+:root {
+  /* Foundation Layer */
+  --space-base: 8px;
+  --radius-base: 12px;
+
+  /* Color System - TrueBrew Design System */
+  --bg-primary: #FAF6F1;
+  --bg-secondary: #FFFBF5;
+  --bg-accent-muted: #FEF5F1;
+
+  --text-primary: #2D2A26;
+  --text-secondary: #5A5550;
+  --text-tertiary: #858078;
+
+  --accent-primary: #C75B39;      /* Terracotta */
+  --accent-secondary: #7D8B6C;    /* Sage */
+  --accent-tertiary: #D4A84B;     /* Ochre */
+
+  --border-default: #E8D6B8;
+  --border-accent: #F9C0AB;
+
+  /* TrueBrew Motion Library - Timing */
+  --duration-instant: 50ms;
+  --duration-fast: 150ms;
+  --duration-normal: 250ms;
+  --duration-slow: 400ms;
+  --duration-slower: 600ms;
+  --duration-slowest: 1000ms;
+
+  /* TrueBrew Motion Library - Easings */
+  --ease-linear: linear;
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-out-back: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1);
+  --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+  /* Default Transitions */
+  --transition-default: var(--duration-normal) var(--ease-out-expo);
+  --transition-smooth: var(--duration-slow) var(--ease-out-expo);
+  --transition-bounce: var(--duration-slower) var(--ease-out-back);
+
+  /* Effects Layer */
+  --shadow-warm: 0 4px 16px rgba(199, 91, 57, 0.12);
+  --shadow-warm-lg: 0 8px 24px rgba(199, 91, 57, 0.16);
+
+  /* SIGNATURE ELEMENT - Nora's Handwritten Notes */
+  --signature-handwritten-tilt: -2deg;
+  --signature-warm-glow: 0 0 40px rgba(199, 91, 57, 0.15);
+}
+
+@layer base {
+  body {
+    @apply bg-parchment text-ink font-body;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+    font-feature-settings: "kern" 1, "liga" 1;
+    letter-spacing: -0.02em; /* Tighter tracking for serifs */
+  }
+
+  /* Smooth scroll with offset for fixed header */
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 100px;
+  }
+
+  /* Enhanced focus states */
+  *:focus-visible {
+    @apply outline-2 outline-offset-4 outline-terracotta-500;
+    outline-style: solid;
+  }
+
+  /* Selection color */
+  ::selection {
+    background-color: #F9C0AB;
+    color: #2A251F;
+  }
+
+  /* Handwritten accent elements get signature tilt */
+  .handwritten-accent {
+    font-family: var(--font-caveat);
+    transform: rotate(var(--signature-handwritten-tilt));
+    display: inline-block;
+  }
+}
+
+@layer components {
+  /* TrueBrew Design System - Button Components */
+  .btn-primary {
+    @apply px-8 py-4 bg-terracotta-500 hover:bg-terracotta-600 text-white font-display rounded-organic;
+    box-shadow: var(--shadow-warm);
+    transition: transform var(--duration-fast) var(--ease-out-expo),
+                box-shadow var(--duration-fast) var(--ease-out-expo),
+                background-color var(--duration-fast) var(--ease-out-expo);
+  }
+
+  .btn-primary:hover {
+    box-shadow: var(--shadow-warm-lg);
+    transform: translateY(-2px);
+  }
+
+  .btn-primary:active {
+    transform: translateY(0);
+    transition-duration: var(--duration-instant);
+  }
+
+  .btn-secondary {
+    @apply px-8 py-4 bg-white hover:bg-sand-50 text-ink border-2 border-sand-300 hover:border-terracotta-300 font-display rounded-organic;
+    transition: background-color var(--duration-fast) var(--ease-out-expo),
+                border-color var(--duration-fast) var(--ease-out-expo);
+  }
+
+  /* Recipe card - Hover Lift Pattern (from component-patterns.md) */
+  .recipe-card {
+    @apply bg-white rounded-organic overflow-hidden;
+    box-shadow: var(--shadow-warm);
+    transition: transform var(--duration-normal) var(--ease-out-expo),
+                box-shadow var(--duration-normal) var(--ease-out-expo);
+  }
+
+  .recipe-card:hover {
+    box-shadow: var(--shadow-warm-lg);
+    transform: translateY(-8px);
+  }
+
+  /* SIGNATURE ELEMENT: Nora's Handwritten Labels */
+  .handwritten-label {
+    @apply font-accent text-2xl text-terracotta-600;
+    transform: rotate(var(--signature-handwritten-tilt));
+    display: inline-block;
+    line-height: 1;
+  }
+
+  /* Warm glow effect for featured content */
+  .warm-glow {
+    position: relative;
+  }
+
+  .warm-glow::before {
+    content: '';
+    position: absolute;
+    inset: -20px;
+    background: radial-gradient(circle, rgba(199, 91, 57, 0.15) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity var(--transition-smooth);
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  .warm-glow:hover::before {
+    opacity: 1;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Enhanced animations */
+  .animate-fade-in-up {
+    animation: fadeInUp 0.6s ease-out forwards;
+  }
+
+  .animate-slide-in-right {
+    animation: slideInRight 0.7s ease-out forwards;
+  }
+
+  .animate-bounce-gentle {
+    animation: bounceGentle 2s ease-in-out infinite;
+  }
+
+  /* Grain texture overlay (adds warmth and organic feel) */
+  .grain-texture {
+    position: relative;
+  }
+
+  .grain-texture::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    opacity: 0.4;
+    mix-blend-mode: multiply;
+  }
+
+  /* Handwritten underline (signature decoration) */
+  .handwritten-underline {
+    position: relative;
+    display: inline-block;
+  }
+
+  .handwritten-underline::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -4px;
+    height: 8px;
+    background: url("data:image/svg+xml,%3Csvg width='100' height='8' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,4 Q25,1 50,4 T100,4' stroke='%23F59673' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E") repeat-x;
+    background-size: 100px 8px;
+    opacity: 0.6;
+  }
+
+  /* Staggered animation delays for lists */
+  .stagger-1 { animation-delay: 0.1s; }
+  .stagger-2 { animation-delay: 0.2s; }
+  .stagger-3 { animation-delay: 0.3s; }
+  .stagger-4 { animation-delay: 0.4s; }
+  .stagger-5 { animation-delay: 0.5s; }
+  .stagger-6 { animation-delay: 0.6s; }
+}
+
+/* Print styles for recipes */
+@media print {
+  body.printing-recipe nav,
+  body.printing-recipe footer,
+  body.printing-recipe .no-print,
+  body.printing-recipe button:not([data-print-button]),
+  body.printing-recipe .share-buttons,
+  body.printing-recipe .jump-to-recipe,
+  body.printing-recipe .related-recipes,
+  body.printing-recipe .breadcrumb {
+    display: none !important;
+  }
+
+  body.printing-recipe {
+    background: white !important;
+  }
+
+  body.printing-recipe #recipe-card {
+    box-shadow: none !important;
+    border: 1px solid #ddd !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 20px !important;
+  }
+
+  body.printing-recipe .ingredient-list,
+  body.printing-recipe .instruction-steps {
+    break-inside: avoid-column;
+  }
+
+  body.printing-recipe [role="checkbox"] {
+    border: 2px solid #333 !important;
+    background: white !important;
+  }
+
+  body.printing-recipe [role="checkbox"] svg {
+    display: none !important;
+  }
+
+  body.printing-recipe .nutrition-facts {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  @page {
+    size: letter;
+    margin: 0.5in;
+  }
+
+  body.printing-recipe * {
+    color: #333 !important;
+  }
+
+  body.printing-recipe .line-through {
+    text-decoration: none !important;
+    opacity: 1 !important;
+  }
+}

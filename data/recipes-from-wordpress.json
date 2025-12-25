@@ -1,0 +1,1269 @@
+{
+  "recipes": [
+    {
+      "id": "zucchini-carrot-crustless-pizza",
+      "url": "https://easytocookmeals.com/from-jerusalem-gardens-to-your-table-discovering-the-magic-of-zucchini-carrot-crustless-pizza/",
+      "title": "Zucchini & Carrot Crustless Veggie Pizza",
+      "slug": "zucchini-carrot-crustless-pizza",
+      "story": "The author describes discovering a crustless vegetable pizza concept in Jerusalem's old city at a vegan café. After returning to Tel Aviv, they experimented for weeks to perfect this recipe, combining 'ancient wisdom of Middle Eastern cooking' with modern plant-based methods. The dish celebrates Israeli cuisine's emphasis on vegetables while remaining practical and flavorful.",
+      "featuredImage": "/images/recipes/zucchini-carrot-crustless-pizza/featured.jpg",
+      "originalImageUrl": "https://easytocookmeals.com/wp-content/uploads/2025/04/Zucchini_Carrot_pizza.jpg",
+      "images": [
+        {
+          "url": "/images/recipes/zucchini-carrot-crustless-pizza/featured.jpg",
+          "originalUrl": "https://easytocookmeals.com/wp-content/uploads/2025/04/Zucchini_Carrot_pizza.jpg",
+          "type": "featured"
+        }
+      ],
+      "ingredients": [
+        {
+          "item": "zucchini",
+          "amount": "1 cup",
+          "notes": "spiralized or julienned"
+        },
+        {
+          "item": "carrot",
+          "amount": "1 cup",
+          "notes": "spiralized or grated"
+        },
+        {
+          "item": "red onion",
+          "amount": "1/4",
+          "notes": "thinly sliced"
+        },
+        {
+          "item": "chickpea flour (besan)",
+          "amount": "1/2 cup"
+        },
+        {
+          "item": "water",
+          "amount": "1/2 cup"
+        },
+        {
+          "item": "nutritional yeast",
+          "amount": "2 tbsp"
+        },
+        {
+          "item": "garlic powder",
+          "amount": "1/2 tsp"
+        },
+        {
+          "item": "turmeric",
+          "amount": "1/2 tsp"
+        },
+        {
+          "item": "salt & pepper",
+          "amount": "to taste"
+        },
+        {
+          "item": "olive oil",
+          "amount": "1 tbsp",
+          "notes": "for brushing"
+        },
+        {
+          "item": "fresh herbs",
+          "amount": "",
+          "notes": "dill or parsley, for garnish"
+        },
+        {
+          "item": "vegan cheese shreds",
+          "amount": "",
+          "notes": "optional topping"
+        }
+      ],
+      "instructions": [
+        "Preheat oven to 375°F (190°C); grease pizza pan or line with parchment",
+        "Whisk chickpea flour, water, nutritional yeast, garlic powder, turmeric, salt, and pepper into smooth batter",
+        "Combine zucchini, carrot, and red onion in bowl; pour batter over vegetables and mix thoroughly",
+        "Transfer mixture to pan, spread evenly like pizza base; optionally add vegan cheese",
+        "Bake 25-30 minutes until golden brown at edges and firm in center",
+        "Cool slightly, slice, garnish with fresh herbs, and serve warm"
+      ],
+      "prepTime": "15 minutes",
+      "cookTime": "30 minutes",
+      "totalTime": "45 minutes",
+      "servings": 4,
+      "course": "Main Course",
+      "cuisine": "Middle Eastern Fusion, Vegan",
+      "keywords": ["crustless pizza", "gluten-free pizza", "vegan pizza", "zucchini carrot pizza"],
+      "nutrition": {
+        "calories": 165,
+        "carbohydrates": "24g",
+        "protein": "6g",
+        "fat": "5g",
+        "sodium": "150mg",
+        "potassium": "350mg",
+        "fiber": "5g",
+        "sugar": "3g",
+        "vitaminA": "450 IU",
+        "vitaminC": "25mg",
+        "calcium": "30mg",
+        "iron": "2.5mg"
+      },
+      "notes": [
+        "Squeeze excess moisture from zucchini before mixing",
+        "Reheats well at 350°F for 10 minutes or 3-4 minutes in air fryer",
+        "Add red pepper flakes for spicier version",
+        "Bell peppers, spinach, and mushrooms work as vegetable substitutes"
+      ]
+    },
+    {
+      "id": "authentic-falafel",
+      "url": "https://easytocookmeals.com/authentic-falafel-my-middle-eastern-discovery-that-changed-everything/",
+      "title": "Authentic Falafel Recipe (Easy Baked, Air Fryer or Fried Method)",
+      "slug": "authentic-falafel",
+      "story": "The author, an Israeli vegan chef, describes discovering authentic falafel in Jerusalem's Old City. After following spice and oil aromas down a cobblestone alley, an elderly vendor's freshly fried falafel in warm pita with tahini and pickled vegetables transformed the author's culinary perspective. The recipe emphasizes that 'authentic, crispy falafel' requires dried chickpeas soaked overnight rather than canned ones, distinguishing this version through proper technique and balanced spice blending.",
+      "featuredImage": "/images/recipes/authentic-falafel/featured.jpeg",
+      "originalImageUrl": "https://easytocookmeals.com/wp-content/uploads/2025/04/9k-1.jpeg",
+      "images": [
+        {
+          "url": "/images/recipes/authentic-falafel/featured.jpeg",
+          "originalUrl": "https://easytocookmeals.com/wp-content/uploads/2025/04/9k-1.jpeg",
+          "type": "featured"
+        }
+      ],
+      "ingredientGroups": [
+        {
+          "name": "Falafel Base",
+          "ingredients": [
+            {
+              "item": "dried chickpeas",
+              "amount": "2 cups",
+              "notes": "measured before soaking"
+            },
+            {
+              "item": "flat-leaf parsley",
+              "amount": "1 cup",
+              "notes": "packed"
+            },
+            {
+              "item": "mint leaves or cilantro",
+              "amount": "1/2 cup",
+              "notes": "optional"
+            },
+            {
+              "item": "yellow onion",
+              "amount": "1"
+            },
+            {
+              "item": "garlic",
+              "amount": "6 cloves"
+            }
+          ]
+        },
+        {
+          "name": "Spices & Seasonings",
+          "ingredients": [
+            {
+              "item": "ground coriander",
+              "amount": "2 tsp"
+            },
+            {
+              "item": "ground cumin",
+              "amount": "1½ tsp"
+            },
+            {
+              "item": "salt",
+              "amount": "1½ tsp"
+            },
+            {
+              "item": "black pepper",
+              "amount": "¼ tsp"
+            },
+            {
+              "item": "cayenne pepper or chili powder",
+              "amount": "¼ tsp"
+            },
+            {
+              "item": "baking powder",
+              "amount": "2 tsp"
+            }
+          ]
+        },
+        {
+          "name": "For Cooking",
+          "ingredients": [
+            {
+              "item": "olive oil",
+              "amount": "1 tbsp",
+              "notes": "for air frying or baking"
+            },
+            {
+              "item": "frying oil",
+              "amount": "4-6 cups",
+              "notes": "for deep-frying, optional"
+            }
+          ]
+        }
+      ],
+      "instructions": [
+        "Soak chickpeas 24 hours in plenty of water until tripled in size",
+        "Blend herbs & spices: Process parsley, mint, onion, garlic, coriander, cumin, salt, pepper, cayenne in food processor",
+        "Add chickpeas: Add drained chickpeas and baking powder; blend to coarse sand consistency (not pureed)",
+        "Shape: Form 1-1.5 inch balls, flatten slightly; use scoop to prevent sticking",
+        "Air fryer: 400°F for 12-15 minutes until golden; or oven: 350°F for 30 minutes with oil brush; or deep-fry: 340°F for 3-4 minutes until golden"
+      ],
+      "prepTime": "20 minutes",
+      "cookTime": "20 minutes",
+      "soakingTime": "1 day",
+      "totalTime": "40 minutes (plus soaking)",
+      "servings": 24,
+      "servingUnit": "falafels",
+      "course": "Appetizer, Main Course",
+      "cuisine": "Mediterranean, Middle Eastern",
+      "keywords": ["air fryer falafel", "baked falafel", "chickpea patties", "vegan protein"],
+      "nutrition": {
+        "calories": 58,
+        "carbohydrates": "9g",
+        "protein": "3g",
+        "fat": "1g",
+        "sodium": "180mg",
+        "fiber": "2g",
+        "sugar": "1g"
+      },
+      "equipment": [
+        "Food processor",
+        "Ice cream scoop or cookie dough scoop (optional)"
+      ],
+      "notes": [
+        "Never use canned chickpeas; proper soaking creates essential texture",
+        "Mixture should hold together without additional binders if properly processed",
+        "Uncooked mixture keeps 5 days refrigerated; cooked keeps 2-3 days",
+        "Freezes up to 3 months when cooled completely"
+      ]
+    },
+    {
+      "id": "vegan-sweet-potato-plantain-bowl",
+      "url": "https://easytocookmeals.com/vegan-sweet-potato-plantain-bowl-with-quinoa/",
+      "title": "Vegan Sweet Potato Plantain Bowl with Quinoa & Chickpeas (30 Minutes)",
+      "slug": "vegan-sweet-potato-plantain-bowl",
+      "story": "The author describes discovering 'a life-changing combination: roasted sweet potatoes and plantains' during West African travels. She presents this as a 'nutrient-dense, plant-based powerhouse recipe' combining African plantains, Middle Eastern chickpeas, and South American quinoa. The narrative emphasizes culinary fusion, sharing how an experience in Ghana inspired her Tel Aviv kitchen creations.",
+      "featuredImage": "/images/recipes/vegan-sweet-potato-plantain-bowl/featured.jpg",
+      "originalImageUrl": "https://easytocookmeals.com/wp-content/uploads/2025/04/vegan_sweet_potato_planta.jpg",
+      "images": [
+        {
+          "url": "/images/recipes/vegan-sweet-potato-plantain-bowl/featured.jpg",
+          "originalUrl": "https://easytocookmeals.com/wp-content/uploads/2025/04/vegan_sweet_potato_planta.jpg",
+          "type": "featured"
+        }
+      ],
+      "ingredientGroups": [
+        {
+          "name": "Quinoa Base",
+          "ingredients": [
+            {
+              "item": "quinoa",
+              "amount": "185g"
+            },
+            {
+              "item": "vegetable broth or water with salt",
+              "amount": "480ml"
+            }
+          ]
+        },
+        {
+          "name": "Roasted Vegetables",
+          "ingredients": [
+            {
+              "item": "sweet potato",
+              "amount": "1 large (400g)",
+              "notes": "peeled and diced"
+            },
+            {
+              "item": "plantains",
+              "amount": "2",
+              "notes": "ripe but firm, sliced"
+            },
+            {
+              "item": "broccoli florets",
+              "amount": "250g"
+            },
+            {
+              "item": "chickpeas",
+              "amount": "1 can (240g)",
+              "notes": "rinsed and dried"
+            },
+            {
+              "item": "olive oil",
+              "amount": "2-3 tbsp",
+              "notes": "divided"
+            },
+            {
+              "item": "paprika",
+              "amount": "1 tsp"
+            },
+            {
+              "item": "salt and pepper",
+              "amount": "to taste"
+            }
+          ]
+        },
+        {
+          "name": "Fresh Vegetables",
+          "ingredients": [
+            {
+              "item": "kale/salad greens/spinach",
+              "amount": "150g"
+            },
+            {
+              "item": "mini cucumbers",
+              "amount": "4",
+              "notes": "sliced"
+            },
+            {
+              "item": "cherry tomatoes",
+              "amount": "10",
+              "notes": "halved"
+            },
+            {
+              "item": "beetroot",
+              "amount": "1 small",
+              "notes": "sliced"
+            }
+          ]
+        },
+        {
+          "name": "Parsley Tahini Sauce",
+          "ingredients": [
+            {
+              "item": "tahini",
+              "amount": "60ml"
+            },
+            {
+              "item": "parsley or cilantro",
+              "amount": "15g"
+            },
+            {
+              "item": "garlic",
+              "amount": "1 clove"
+            },
+            {
+              "item": "lime",
+              "amount": "1/2",
+              "notes": "juiced"
+            },
+            {
+              "item": "water",
+              "amount": "80ml"
+            },
+            {
+              "item": "salt and pepper",
+              "amount": "to taste"
+            }
+          ]
+        },
+        {
+          "name": "Garnish",
+          "ingredients": [
+            {
+              "item": "sesame seeds",
+              "amount": "1 tbsp"
+            },
+            {
+              "item": "lime wedges",
+              "amount": "4"
+            }
+          ]
+        }
+      ],
+      "instructions": [
+        "Preheat oven to 400°F (200°C) with parchment-lined baking sheet",
+        "Cook rinsed quinoa with broth for 15-20 minutes until liquid absorbs",
+        "Toss sweet potatoes, plantains, broccoli with 1-2 tbsp oil, salt, pepper; spread on half the sheet",
+        "Toss chickpeas with 1 tbsp oil, paprika, salt, pepper; spread on other half",
+        "Roast 25 minutes, stirring midway, until vegetables tender and chickpeas crispy",
+        "Massage kale with salt to soften",
+        "Blend tahini, parsley, garlic, lime juice, water until smooth",
+        "Assemble bowls with quinoa, kale, roasted vegetables; garnish with fresh items and drizzle sauce"
+      ],
+      "prepTime": "20 minutes",
+      "cookTime": "25 minutes",
+      "totalTime": "45 minutes",
+      "servings": 4,
+      "course": "Lunch & Dinner, Main Course",
+      "cuisine": "African, Fusion, Vegan",
+      "keywords": ["Buddha Bowl", "Plantain", "Quinoa Bowl", "Sweet Potato", "Vegan Bowl"],
+      "nutrition": {
+        "calories": 550,
+        "carbohydrates": "75g",
+        "protein": "15g",
+        "fat": "22g",
+        "saturatedFat": "3g",
+        "sodium": "420mg",
+        "fiber": "14g",
+        "sugar": "8g",
+        "vitaminA": "18,500 IU",
+        "vitaminC": "120mg",
+        "calcium": "150mg",
+        "iron": "6.5mg"
+      }
+    },
+    {
+      "id": "watermelon-kiwi-smoothie",
+      "url": "https://easytocookmeals.com/what-not-to-do-in-the-morning-my-way/",
+      "title": "Watermelon Kiwi Smoothie with Frozen Banana",
+      "slug": "watermelon-kiwi-smoothie",
+      "story": "Good morning, beautiful souls! Today, I'm sharing a little sip of sunshine with you – my Vibrant Vegan Smoothie, featuring the delightful trio of watermelon, kiwi, and frozen banana. The author (Nora) describes discovering this blend during a morning in Bali, inspired by local market fruits and vegan lifestyle principles.",
+      "featuredImage": "/images/recipes/watermelon-kiwi-smoothie/featured.png",
+      "originalImageUrl": "https://easytocookmeals.com/wp-content/uploads/2023/12/Watermelon-–-Kiwi-and-Frozen-Banana-Smoothie.png",
+      "images": [
+        {
+          "url": "/images/recipes/watermelon-kiwi-smoothie/featured.png",
+          "originalUrl": "https://easytocookmeals.com/wp-content/uploads/2023/12/Watermelon-–-Kiwi-and-Frozen-Banana-Smoothie.png",
+          "type": "featured"
+        }
+      ],
+      "ingredients": [
+        {
+          "item": "watermelon",
+          "amount": "1 cup",
+          "notes": "coarsely chopped, seeded/seedless"
+        },
+        {
+          "item": "kiwi",
+          "amount": "1",
+          "notes": "peeled and chopped"
+        },
+        {
+          "item": "ice cubes",
+          "amount": "2"
+        },
+        {
+          "item": "banana",
+          "amount": "1",
+          "notes": "ripe, frozen and cut into chunks"
+        },
+        {
+          "item": "apple juice",
+          "amount": "1/4 cup",
+          "notes": "no added sugar"
+        }
+      ],
+      "instructions": [
+        "Combine watermelon, kiwi, banana, ice, and apple juice in a blender",
+        "Blend until smooth and creamy",
+        "Pour into favorite glass and serve"
+      ],
+      "prepTime": "10 minutes",
+      "cookTime": "10 minutes",
+      "servings": 2,
+      "servingUnit": "glasses",
+      "course": "Drinks",
+      "cuisine": "Indonesian",
+      "keywords": ["cold", "fresh", "smoothie"],
+      "nutrition": {
+        "calories": 116,
+        "carbohydrates": "29g",
+        "protein": "2g",
+        "fat": "1g",
+        "fiber": "3g",
+        "sugar": "19g",
+        "vitaminC": "46mg",
+        "potassium": "418mg"
+      },
+      "equipment": [
+        "1 Blender (doesn't need to be high-speed)"
+      ],
+      "notes": [
+        "I love slicing bananas and freezing them in bite-size pieces",
+        "Recommends fresh-juiced apple juice for optimal flavor"
+      ]
+    },
+    {
+      "id": "tropical-coconut-chia-pudding",
+      "url": "https://easytocookmeals.com/tropical-coconut-chia-seed-pudding-with-berries/",
+      "title": "Tropical Coconut Chia Seed Pudding with Berries",
+      "slug": "tropical-coconut-chia-pudding",
+      "story": "The page opens with a narrative about discovering chia seeds in a Thai market. The author reflects on how these seeds, 'once the star of quirky commercials,' were being rediscovered as a superfood. The story describes combining chia seeds with coconut milk and coconut water to create a tropical-inspired dessert that balances indulgence with nutrition.",
+      "featuredImage": "/images/recipes/tropical-coconut-chia-pudding/featured.png",
+      "originalImageUrl": "https://easytocookmeals.com/wp-content/uploads/2024/02/Tropical_Coconut_Chia_Seedpudding.png",
+      "images": [
+        {
+          "url": "/images/recipes/tropical-coconut-chia-pudding/featured.png",
+          "originalUrl": "https://easytocookmeals.com/wp-content/uploads/2024/02/Tropical_Coconut_Chia_Seedpudding.png",
+          "type": "featured"
+        }
+      ],
+      "ingredients": [
+        {
+          "item": "shredded unsweetened coconut",
+          "amount": "1/4 cup"
+        },
+        {
+          "item": "chia seeds",
+          "amount": "1/4 cup"
+        },
+        {
+          "item": "full-fat coconut milk",
+          "amount": "3/4 cup"
+        },
+        {
+          "item": "coconut water",
+          "amount": "1/2 cup"
+        },
+        {
+          "item": "vanilla extract",
+          "amount": "1 tsp"
+        },
+        {
+          "item": "Himalayan salt",
+          "amount": "1/4 tsp"
+        },
+        {
+          "item": "fresh berries",
+          "amount": "1/2 cup",
+          "notes": "blueberries, raspberries, or strawberries"
+        }
+      ],
+      "instructions": [
+        "Combine shredded coconut, chia seeds, coconut milk, coconut water, vanilla, and salt in a bowl or Mason jar, stirring until well-mixed",
+        "Refrigerate for 2 hours or overnight to allow thickening",
+        "Top with fresh berries before serving"
+      ],
+      "prepTime": "5 minutes",
+      "restTime": "2 hours",
+      "totalTime": "2 hours 5 minutes",
+      "servings": 3,
+      "course": "Dessert",
+      "cuisine": "Thai",
+      "nutrition": {
+        "calories": 257,
+        "carbohydrates": "15g",
+        "protein": "4g",
+        "fat": "22g",
+        "fiber": "7g",
+        "sugar": "4g",
+        "sodium": "249mg"
+      },
+      "notes": [
+        "Optional variations include adding organic peanut butter",
+        "Can create a brittle topping with seeds and nuts sweetened with maple syrup"
+      ]
+    },
+    {
+      "id": "vegan-oreos",
+      "url": "https://easytocookmeals.com/healthy-vegan-oreos/",
+      "title": "Homemade Oreo-Inspired Vegan Cookies",
+      "slug": "vegan-oreos",
+      "story": "The author discovered inspiration in Greenwich Village, NYC, observing classic Oreos in a bakery window. As a vegan, she reimagined this childhood favorite using plant-based ingredients. The narrative emphasizes how creativity transforms beloved treats into compassionate alternatives, celebrating 'the joy of rediscovering childhood favorites through a new, compassionate lens.'",
+      "featuredImage": "/images/recipes/vegan-oreos/featured.png",
+      "originalImageUrl": "https://easytocookmeals.com/wp-content/uploads/2024/01/jankutschera_High_class_commercial_food_photo_of_Homemade_Oreo-_d616bd0f-3df1-454b-8c77-50443004c600.png",
+      "images": [
+        {
+          "url": "/images/recipes/vegan-oreos/featured.png",
+          "originalUrl": "https://easytocookmeals.com/wp-content/uploads/2024/01/jankutschera_High_class_commercial_food_photo_of_Homemade_Oreo-_d616bd0f-3df1-454b-8c77-50443004c600.png",
+          "type": "featured"
+        }
+      ],
+      "ingredientGroups": [
+        {
+          "name": "Dough",
+          "ingredients": [
+            {
+              "item": "spelt white or oat flour",
+              "amount": "3/4 cup"
+            },
+            {
+              "item": "Dutch cocoa powder",
+              "amount": "6 tbsp"
+            },
+            {
+              "item": "unrefined or regular sugar",
+              "amount": "6 tbsp",
+              "notes": "or xylitol for sugar-free"
+            },
+            {
+              "item": "salt",
+              "amount": "1/4 tsp"
+            },
+            {
+              "item": "baking soda",
+              "amount": "1/4 tsp"
+            },
+            {
+              "item": "vanilla extract",
+              "amount": "1 tsp"
+            },
+            {
+              "item": "vegetable or coconut oil",
+              "amount": "1/4 cup"
+            },
+            {
+              "item": "oat milk",
+              "amount": "3 tbsp",
+              "notes": "or other milk alternative"
+            },
+            {
+              "item": "pure maple syrup",
+              "amount": "2 tbsp"
+            }
+          ]
+        },
+        {
+          "name": "Vegan Cream Filling",
+          "ingredients": [
+            {
+              "item": "powdered sugar",
+              "amount": "1/2 cup",
+              "notes": "or sugar-free powdered sugar"
+            },
+            {
+              "item": "pure vanilla extract",
+              "amount": "1/2 tsp"
+            },
+            {
+              "item": "melted coconut butter",
+              "amount": "1/4 cup",
+              "notes": "or non-hydrogenated shortening/Earth Balance spread"
+            }
+          ]
+        }
+      ],
+      "instructions": [
+        "Beat together all filling ingredients until smooth",
+        "Combine first 5 cookie ingredients; mix well",
+        "Mix remaining cookie ingredients separately",
+        "Combine wet and dry mixtures into dough; refrigerate 30 minutes",
+        "Preheat oven to 300°F",
+        "Roll dough thin and cut into circles",
+        "Bake on greased tray for 10 minutes",
+        "Cool 10 minutes before removing from tray",
+        "Spread filling on half the cookies; top with remaining cookies",
+        "Refrigerate to set"
+      ],
+      "prepTime": "40 minutes",
+      "cookTime": "10 minutes",
+      "totalTime": "50 minutes",
+      "servings": 24,
+      "servingUnit": "cookies",
+      "course": "Snack",
+      "cuisine": "American",
+      "keywords": ["baking", "vegan"],
+      "nutrition": {
+        "calories": 72,
+        "carbohydrates": "11g",
+        "protein": "1g",
+        "fat": "3g",
+        "saturatedFat": "2g",
+        "fiber": "1g",
+        "sugar": "7g",
+        "sodium": "17mg"
+      },
+      "notes": [
+        "Cookies offer the same appeal as commercial Oreos without high fructose corn syrup or trans fats",
+        "Store in refrigerator up to one week to maintain firm filling"
+      ]
+    },
+    {
+      "id": "overnight-oatmeal",
+      "url": "https://easytocookmeals.com/on-the-go-breakfast-overnight-oatmeal/",
+      "title": "Sunrise Symphony: Overnight Oatmeal Jars",
+      "slug": "overnight-oatmeal",
+      "story": "The recipe was inspired by an author's time in Tuscany, combining 'the nourishment of a hearty breakfast with the ease of a grab-and-go meal.' The concept features four fruit-based variations using vibrant ingredients: blueberries, raspberries, bananas, and mangoes. The introduction emphasizes creating 'an experience, a moment of joy, a morning ritual' rather than just sustenance.",
+      "featuredImage": "/images/recipes/overnight-oatmeal/featured.png",
+      "originalImageUrl": "https://easytocookmeals.com/wp-content/uploads/2024/01/jankutschera_food_blogger_photo_of_4_different_Overnight_Oatmea_45ed1462-bef3-4f6b-a7e5-98aebda461c8.png",
+      "images": [
+        {
+          "url": "/images/recipes/overnight-oatmeal/featured.png",
+          "originalUrl": "https://easytocookmeals.com/wp-content/uploads/2024/01/jankutschera_food_blogger_photo_of_4_different_Overnight_Oatmea_45ed1462-bef3-4f6b-a7e5-98aebda461c8.png",
+          "type": "featured"
+        }
+      ],
+      "variations": [
+        {
+          "name": "Blueberry Bliss Oatmeal",
+          "ingredients": [
+            {
+              "item": "blueberries",
+              "amount": "1/4 cup"
+            },
+            {
+              "item": "soy milk",
+              "amount": "1/4 cup"
+            },
+            {
+              "item": "low-fat Greek yogurt",
+              "amount": "1/4 cup"
+            },
+            {
+              "item": "chia seeds",
+              "amount": "2 tsp"
+            },
+            {
+              "item": "rolled oats",
+              "amount": "1/4 cup"
+            },
+            {
+              "item": "maple syrup",
+              "amount": "2 tbsp"
+            }
+          ]
+        },
+        {
+          "name": "Raspberry Radiance Oatmeal",
+          "ingredients": [
+            {
+              "item": "raspberries",
+              "amount": "1/4 cup"
+            },
+            {
+              "item": "skim or soy milk",
+              "amount": "1/4 cup"
+            },
+            {
+              "item": "low-fat Greek yogurt",
+              "amount": "1/4 cup"
+            },
+            {
+              "item": "chia seeds",
+              "amount": "2 tsp"
+            },
+            {
+              "item": "rolled oats",
+              "amount": "1/4 cup"
+            },
+            {
+              "item": "agave nectar",
+              "amount": "2 tbsp"
+            }
+          ]
+        },
+        {
+          "name": "Banana Bonanza Oatmeal",
+          "ingredients": [
+            {
+              "item": "banana",
+              "amount": "1",
+              "notes": "sliced"
+            },
+            {
+              "item": "soy or skim milk",
+              "amount": "1/4 cup"
+            },
+            {
+              "item": "low-fat Greek yogurt",
+              "amount": "1/4 cup"
+            },
+            {
+              "item": "chia seeds",
+              "amount": "2 tsp"
+            },
+            {
+              "item": "rolled oats",
+              "amount": "1/4 cup"
+            },
+            {
+              "item": "maple syrup",
+              "amount": "2 tbsp"
+            }
+          ]
+        },
+        {
+          "name": "Mango Magic Oatmeal",
+          "ingredients": [
+            {
+              "item": "mango",
+              "amount": "1",
+              "notes": "diced"
+            },
+            {
+              "item": "soy milk",
+              "amount": "1/4 cup"
+            },
+            {
+              "item": "low-fat Greek yogurt",
+              "amount": "1/4 cup"
+            },
+            {
+              "item": "chia seeds",
+              "amount": "2 tsp"
+            },
+            {
+              "item": "rolled oats",
+              "amount": "1/4 cup"
+            },
+            {
+              "item": "agave syrup",
+              "amount": "2 tbsp"
+            }
+          ]
+        }
+      ],
+      "instructions": [
+        "Use a 1/2 quart ball glass jar as container",
+        "Combine rolled oats, chia seeds, milk, and sweetener in jar",
+        "Seal and shake to blend, or stir with spoon",
+        "Add fruit now for overnight infusion or in the morning for freshness",
+        "After overnight refrigeration, enjoy the prepared mixture"
+      ],
+      "prepTime": "15 minutes",
+      "soakingTime": "8 hours",
+      "servings": 4,
+      "servingUnit": "jars (one for each variation)",
+      "course": "Breakfast",
+      "cuisine": "Oatmeal",
+      "nutrition": {
+        "calories": 371,
+        "carbohydrates": "68g",
+        "protein": "12g",
+        "fat": "7g",
+        "saturatedFat": "1g",
+        "fiber": "7g",
+        "sugar": "42g",
+        "calcium": "241mg",
+        "iron": "2mg",
+        "vitaminC": "32mg",
+        "sodium": "59mg",
+        "potassium": "446mg"
+      },
+      "notes": [
+        "Jars keep refrigerated for up to five days",
+        "Variations in fruits and milk types are encouraged based on preferences"
+      ]
+    },
+    {
+      "id": "vegan-turkey-pasta-sauce",
+      "url": "https://easytocookmeals.com/powered-hearty-pasta-sauce-the-vegan-turkey/",
+      "title": "Powered Hearty Vegan Turkey Pasta Sauce",
+      "slug": "vegan-turkey-pasta-sauce",
+      "story": "The author describes discovering inspiration in an Italian village trattoria, where an elderly chef shared the essence of Italian cooking: 'it's not just about the ingredients; it's about the love and patience you put into it.' The narrative explains how this traditional dish was adapted into a vegan version using plant-based alternatives while honoring the warmth of Italian culinary traditions.",
+      "featuredImage": "/images/recipes/vegan-turkey-pasta-sauce/featured.png",
+      "originalImageUrl": "https://easytocookmeals.com/wp-content/uploads/2024/01/jankutschera_a_food_instagramer_photo_of_a_vegan_turkey_pasta_s_920e07ff-acc9-4b3a-abb1-a5b86e19eb9e.png",
+      "images": [
+        {
+          "url": "/images/recipes/vegan-turkey-pasta-sauce/featured.png",
+          "originalUrl": "https://easytocookmeals.com/wp-content/uploads/2024/01/jankutschera_a_food_instagramer_photo_of_a_vegan_turkey_pasta_s_920e07ff-acc9-4b3a-abb1-a5b86e19eb9e.png",
+          "type": "featured"
+        }
+      ],
+      "ingredients": [
+        {
+          "item": "carrots",
+          "amount": "2"
+        },
+        {
+          "item": "green bell pepper",
+          "amount": "1"
+        },
+        {
+          "item": "red bell pepper",
+          "amount": "1"
+        },
+        {
+          "item": "onion",
+          "amount": "1"
+        },
+        {
+          "item": "olive oil",
+          "amount": "2 tbsp"
+        },
+        {
+          "item": "vegan ground meat alternative",
+          "amount": "1 lb"
+        },
+        {
+          "item": "crushed tomatoes",
+          "amount": "28 oz"
+        },
+        {
+          "item": "tomato sauce",
+          "amount": "15 oz"
+        },
+        {
+          "item": "tomato paste",
+          "amount": "6 oz"
+        },
+        {
+          "item": "garlic",
+          "amount": "4 cloves"
+        },
+        {
+          "item": "dried oregano",
+          "amount": "1/2 tbsp"
+        },
+        {
+          "item": "dried basil",
+          "amount": "1/2 tbsp"
+        },
+        {
+          "item": "salt",
+          "amount": "1/2 tsp"
+        },
+        {
+          "item": "pepper",
+          "amount": "1/2 tsp"
+        }
+      ],
+      "instructions": [
+        "Sauté the Rainbow: Heat olive oil over medium-high heat. Add carrots, bell peppers, and onion; cook 3-4 minutes until softened",
+        "Plant-Based Transformation: Add vegan ground meat alternative and cook until browned, mixing with vegetables",
+        "Tomato Symphony: Pour in crushed tomatoes, tomato sauce, and tomato paste. Add minced garlic, oregano, basil, salt, and pepper. Stir well",
+        "Simmer with Love: Reduce heat to medium-low and simmer approximately 30 minutes until flavors meld and sauce thickens",
+        "Serve with Joy: Ladle sauce over preferred pasta variety"
+      ],
+      "prepTime": "15 minutes",
+      "cookTime": "45 minutes",
+      "totalTime": "1 hour",
+      "servings": 8,
+      "course": "Dinner",
+      "cuisine": "American",
+      "keywords": ["pasta", "sauce"],
+      "nutrition": {
+        "calories": 260,
+        "carbohydrates": "19g",
+        "protein": "14g",
+        "fat": "16g",
+        "saturatedFat": "5g",
+        "fiber": "5g",
+        "sugar": "11g",
+        "sodium": "769mg",
+        "potassium": "965mg",
+        "vitaminA": "3,844 IU",
+        "vitaminC": "51mg",
+        "calcium": "84mg",
+        "iron": "4mg"
+      },
+      "notes": [
+        "Carrots serve as the tenderness indicator for doneness",
+        "Flavor improves when prepared ahead; may be made one day prior",
+        "Freezer-friendly in airtight containers for convenient future meals"
+      ]
+    },
+    {
+      "id": "vegan-asian-beef-broccoli",
+      "url": "https://easytocookmeals.com/skinny-crock-pot-vegan-asian-beef-with-broccoli/",
+      "title": "Skinny Crock Pot – Vegan Asian Beef with Broccoli",
+      "slug": "vegan-asian-beef-broccoli",
+      "story": "The author shares a culinary journey through Hanoi, Vietnam, where they discovered a traditional beef and broccoli dish at a local market. Inspired by the aroma of simmering beef with fresh broccoli in glossy sauce, they undertook the challenge of recreating it as a plant-based meal. The narrative describes their experimentation in a travel kitchen, developing a vegan version using plant-based beef alternatives, vegan oyster sauce, and vegetable consommé. The author reflects on finally perfecting the recipe while overlooking Hanoi's streets, describing it as 'a testament to the adventures that await us when we open our hearts and kitchens.'",
+      "featuredImage": "/images/recipes/vegan-asian-beef-broccoli/featured.png",
+      "originalImageUrl": "https://easytocookmeals.com/wp-content/uploads/2024/01/jankutschera_high_class_commercial_food_photography_of_chinese__a10ce776-335e-4d0b-80e0-201b9c944c6e.png",
+      "images": [
+        {
+          "url": "/images/recipes/vegan-asian-beef-broccoli/featured.png",
+          "originalUrl": "https://easytocookmeals.com/wp-content/uploads/2024/01/jankutschera_high_class_commercial_food_photography_of_chinese__a10ce776-335e-4d0b-80e0-201b9c944c6e.png",
+          "type": "featured"
+        }
+      ],
+      "ingredients": [
+        {
+          "item": "vegan beef strips",
+          "amount": "1½ pounds",
+          "notes": "MayWah Beef Slices recommended"
+        },
+        {
+          "item": "vegetable consommé",
+          "amount": "1 can"
+        },
+        {
+          "item": "vegan oyster sauce",
+          "amount": "1/2 cup"
+        },
+        {
+          "item": "cornstarch",
+          "amount": "2 tbsp"
+        },
+        {
+          "item": "frozen broccoli florets",
+          "amount": "16 oz",
+          "notes": "or 1 fresh head"
+        },
+        {
+          "item": "sesame seeds",
+          "amount": "1 tbsp"
+        }
+      ],
+      "instructions": [
+        "Place vegan beef strips in crock pot",
+        "Pour vegetable consommé and vegan oyster sauce over beef",
+        "Cover and cook on low for 6 hours (or high for 3 hours)",
+        "Mix cornstarch with water until smooth; stir into beef to thicken sauce",
+        "Add broccoli florets",
+        "Continue cooking on high for 15 minutes until combined"
+      ],
+      "course": "Main Course",
+      "cuisine": "Vietnamese",
+      "keywords": ["Vegan"],
+      "nutrition": {
+        "calories": 778,
+        "carbohydrates": "81g",
+        "protein": "96g",
+        "fat": "9g",
+        "saturatedFat": "1g",
+        "polyunsaturatedFat": "4g",
+        "monounsaturatedFat": "3g",
+        "sodium": "3629mg",
+        "potassium": "183mg",
+        "fiber": "30g",
+        "sugar": "0.3g",
+        "vitaminA": "110 IU",
+        "vitaminC": "15mg",
+        "calcium": "66mg",
+        "iron": "1mg"
+      },
+      "notes": [
+        "Use quality plant-based beef",
+        "Maintain broccoli texture during cooking",
+        "Serve over jasmine rice or quinoa",
+        "Page includes section 'What is a Skinny Crock Pot?' explaining philosophy of combining slow-cooking with health-conscious, lighter dishes"
+      ]
+    },
+    {
+      "id": "vegan-raclette-cheese",
+      "url": "https://easytocookmeals.com/vegan-raclette-cheese/",
+      "title": "Vegan Raclette Cheese",
+      "slug": "vegan-raclette-cheese",
+      "story": "The page features an extended narrative about vegans excluded from raclette parties. Key excerpt: 'a group of rebels faced a challenge. As vegans, they were left out of these cheesy gatherings, yearning for a taste of the melting goodness.' The story describes creating a plant-based cheese to 'crash the raclette party scene' and ultimately becoming 'rockstars of raclette parties.'",
+      "featuredImage": "/images/recipes/vegan-raclette-cheese/featured.png",
+      "originalImageUrl": "https://easytocookmeals.com/wp-content/uploads/2023/12/raclette_pan_with_tortilla_chips_close.png",
+      "images": [
+        {
+          "url": "/images/recipes/vegan-raclette-cheese/featured.png",
+          "originalUrl": "https://easytocookmeals.com/wp-content/uploads/2023/12/raclette_pan_with_tortilla_chips_close.png",
+          "type": "featured"
+        }
+      ],
+      "ingredients": [
+        {
+          "item": "carrot",
+          "amount": "1"
+        },
+        {
+          "item": "medium-sized potatoes",
+          "amount": "2"
+        },
+        {
+          "item": "red bell pepper",
+          "amount": "1/2"
+        },
+        {
+          "item": "unsalted cashews",
+          "amount": "50g"
+        },
+        {
+          "item": "garlic",
+          "amount": "1 clove"
+        },
+        {
+          "item": "olive oil",
+          "amount": "2 tbsp"
+        },
+        {
+          "item": "nutritional yeast",
+          "amount": "4 tbsp"
+        },
+        {
+          "item": "onion powder",
+          "amount": "1 tsp"
+        },
+        {
+          "item": "salt",
+          "amount": "1/2 tsp"
+        }
+      ],
+      "instructions": [
+        "Chop vegetables; boil carrot and potato cubes in salted water for 10 minutes. Drain, reserving 50ml cooking water",
+        "Blend cooked vegetables, reserved water, cashews, garlic, soy milk, olive oil, nutritional yeast, onion powder, and salt until smooth",
+        "Pour mixture into saucepan, bring to boil. Reduce heat and simmer 10 minutes, adjusting seasoning as needed"
+      ],
+      "prepTime": "10 minutes",
+      "cookTime": "8 hours 10 minutes",
+      "servings": 6,
+      "course": "Main Course",
+      "cuisine": "Austrian",
+      "nutrition": {
+        "calories": 1023,
+        "carbohydrates": "114g",
+        "protein": "36g",
+        "fat": "52g",
+        "saturatedFat": "8g",
+        "fiber": "22g",
+        "sugar": "12g",
+        "sodium": "252mg",
+        "potassium": "3112mg",
+        "vitaminA": "12066 IU",
+        "vitaminC": "165mg",
+        "calcium": "111mg",
+        "iron": "9mg"
+      },
+      "notes": [
+        "Boil vegetables until tender for smooth texture",
+        "Blend thoroughly for creamy consistency",
+        "Cook on low heat to meld flavors",
+        "Adjust seasoning to preference"
+      ]
+    },
+    {
+      "id": "vegan-mozzarella",
+      "url": "https://easytocookmeals.com/vegan-mozarella/",
+      "title": "Vegan Mozarella",
+      "slug": "vegan-mozzarella",
+      "story": "The page presents a narrative framing vegan mozzarella as a 'rebellious' alternative to traditional Italian cheese. It describes the creation journey: 'Can we create a dairy-free alternative that doesn't compromise on taste or texture?' The author details experimenting with ingredients like tofu, nutritional yeast, almonds, and coconut oil before settling on a final blend of cashews, soy yogurt, tapioca starch, and agar-agar. The narrative emphasizes sustainability and challenging conventional food industry practices.",
+      "featuredImage": "/images/recipes/vegan-mozzarella/featured.png",
+      "originalImageUrl": "https://easytocookmeals.com/wp-content/uploads/2023/12/vegan_mozarella.png",
+      "images": [
+        {
+          "url": "/images/recipes/vegan-mozzarella/featured.png",
+          "originalUrl": "https://easytocookmeals.com/wp-content/uploads/2023/12/vegan_mozarella.png",
+          "type": "featured"
+        }
+      ],
+      "ingredients": [
+        {
+          "item": "cashews",
+          "amount": "150g"
+        },
+        {
+          "item": "unsweetened soy yogurt",
+          "amount": "240g"
+        },
+        {
+          "item": "salt",
+          "amount": "1½ tsp"
+        },
+        {
+          "item": "tapioca starch",
+          "amount": "3 tbsp"
+        },
+        {
+          "item": "agar-agar",
+          "amount": "3g"
+        },
+        {
+          "item": "water",
+          "amount": "240ml",
+          "notes": "referenced in instructions"
+        },
+        {
+          "item": "water",
+          "amount": "120ml",
+          "notes": "for agar-agar dissolution"
+        }
+      ],
+      "instructions": [
+        "Soak cashews 2-3 hours; drain water",
+        "Blend soaked cashews, soy yogurt, 120ml water, and salt until smooth",
+        "Ferment mixture 24 hours at room temperature in covered bowl",
+        "Stir in tapioca starch",
+        "Dissolve agar-agar in 120ml water; simmer 3 minutes",
+        "Pour cashew mixture into pot; cook 5-8 minutes, stirring constantly until stretchy",
+        "Scoop portions into ice water; cool 30 minutes",
+        "Transfer to saltwater solution (3g salt in 100ml water); refrigerate"
+      ],
+      "prepTime": "3 hours",
+      "cookTime": "10 minutes",
+      "restTime": "1 day",
+      "servings": 4,
+      "course": "Appetizer",
+      "cuisine": "Italian",
+      "keywords": ["cheese", "vegan"],
+      "nutrition": {
+        "calories": 1098,
+        "carbohydrates": "92g",
+        "protein": "39g",
+        "fat": "70g",
+        "saturatedFat": "12g",
+        "polyunsaturatedFat": "12g",
+        "monounsaturatedFat": "36g",
+        "cholesterol": "11mg",
+        "sodium": "572mg",
+        "potassium": "1136mg",
+        "fiber": "6g",
+        "sugar": "22g",
+        "vitaminA": "10 IU",
+        "vitaminC": "33mg",
+        "calcium": "403mg",
+        "iron": "11mg"
+      },
+      "notes": [
+        "Ensure thorough cashew soaking for creamy texture",
+        "Tapioca starch is the secret ingredient for stretchy consistency",
+        "Check agar-agar quality and purity before purchasing",
+        "Store in sealed container with saltwater solution; refrigerate approximately 7 days"
+      ]
+    },
+    {
+      "id": "dinner-rolls",
+      "url": "https://easytocookmeals.com/dinner-rolls/",
+      "title": "Vegan Dinner Rolls",
+      "slug": "dinner-rolls",
+      "story": "The author, Nora, shares a narrative about discovering vegan dinner rolls inspiration while traveling in Istanbul. She describes meeting a baker who was experimenting with plant-based versions of traditional recipes. The story emphasizes her journey as a digital nomad creating plant-based alternatives to classic breads, highlighting how these rolls represent 'innovation' while honoring culinary tradition.",
+      "featuredImage": "/images/recipes/dinner-rolls/featured.png",
+      "originalImageUrl": "https://easytocookmeals.com/wp-content/uploads/2023/12/dinner-rolls4.png",
+      "images": [
+        {
+          "url": "/images/recipes/dinner-rolls/featured.png",
+          "originalUrl": "https://easytocookmeals.com/wp-content/uploads/2023/12/dinner-rolls4.png",
+          "type": "featured"
+        }
+      ],
+      "ingredients": [
+        {
+          "item": "unsweetened plant-based milk",
+          "amount": "2 cups",
+          "notes": "gluten-free oat milk recommended"
+        },
+        {
+          "item": "rapid rise yeast",
+          "amount": "1 packet"
+        },
+        {
+          "item": "organic cane sugar",
+          "amount": "2 tbsp"
+        },
+        {
+          "item": "vegan butter",
+          "amount": "2 tbsp"
+        },
+        {
+          "item": "unbleached all-purpose flour",
+          "amount": "2 cups"
+        },
+        {
+          "item": "water",
+          "amount": "1/4 cup"
+        },
+        {
+          "item": "rock salt",
+          "amount": "1/2 tsp"
+        }
+      ],
+      "instructions": [
+        "Mix flour, yeast, sugar, and salt in a bowl",
+        "Warm plant milk and vegan butter to 110-120°F",
+        "Combine wet and dry ingredients; beat for 2 minutes, then add more flour",
+        "Knead on floured surface until smooth; rest 10 minutes",
+        "Divide dough into equal portions; roll into balls",
+        "Place in greased dish; cover and let rise until doubled",
+        "Preheat oven to 375°F; brush with melted vegan butter",
+        "Bake 18-20 minutes until golden"
+      ],
+      "prepTime": "20 minutes",
+      "cookTime": "15 minutes",
+      "servings": 12,
+      "servingUnit": "rolls",
+      "course": "Side Dish",
+      "cuisine": "American",
+      "keywords": ["baking", "bread", "side-dish", "vegan"],
+      "nutrition": {
+        "calories": 1436,
+        "carbohydrates": "266g",
+        "protein": "37g",
+        "fat": "26g",
+        "sodium": "1582mg",
+        "fiber": "13g",
+        "sugar": "63g"
+      },
+      "notes": [
+        "Rolls can be frozen after baking or as dough",
+        "May be prepared 1-2 days ahead; refrigerate covered",
+        "Nutrition appears to be total; per-serving would be approximately 120 kcal"
+      ]
+    }
+  ],
+  "metadata": {
+    "scrapedDate": "2025-12-25",
+    "totalRecipes": 12,
+    "sourceWebsite": "easytocookmeals.com",
+    "platform": "WordPress"
+  }
+}
