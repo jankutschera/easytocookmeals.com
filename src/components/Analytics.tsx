@@ -8,13 +8,16 @@ const GTM_CONTAINER_ID = 'GTM-ND35KXQL';
 const GTM_STAPE_DOMAIN = 'load.scripte.easytocookmeals.com';
 const GTM_STAPE_ENCODED = 'bbeb=ChdWMiA8VDQnQF4%2BLCA1XBVOWVtFVx0UXhYKBg0FFhkMHAAYERAVCU0QBBg%3D';
 
-// Plausible Config (self-hosted)
-const PLAUSIBLE_DOMAIN = 'applause.adhd-founder.com';
+// GA4 Config
+const GA4_MEASUREMENT_ID = 'G-1LLQMZ531Z';
+
+// Plausible Config (first-party subdomain)
+const PLAUSIBLE_DOMAIN = 'applause.easytocookmeals.com';
 const PLAUSIBLE_SITE = 'easytocookmeals.com';
 
-// Umami Config (self-hosted)
-const UMAMI_DOMAIN = 'umami.adhd-founder.com';
-const UMAMI_WEBSITE_ID = '4bd7a9c3-7c5d-4793-9403-ee9f23dce4a0';
+// Umami Config (first-party subdomain)
+const UMAMI_DOMAIN = 'umami.easytocookmeals.com';
+const UMAMI_WEBSITE_ID = ''; // TODO: Add Website ID from Umami admin
 
 export default function Analytics() {
   useEffect(() => {
@@ -79,12 +82,14 @@ export default function Analytics() {
       </Script>
 
       {/* Umami Analytics (cookieless, privacy-focused) */}
-      <Script
-        defer
-        src={`https://${UMAMI_DOMAIN}/script.js`}
-        data-website-id={UMAMI_WEBSITE_ID}
-        strategy="afterInteractive"
-      />
+      {UMAMI_WEBSITE_ID && (
+        <Script
+          defer
+          src={`https://${UMAMI_DOMAIN}/script.js`}
+          data-website-id={UMAMI_WEBSITE_ID}
+          strategy="afterInteractive"
+        />
+      )}
     </>
   );
 }
