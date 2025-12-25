@@ -1,0 +1,18 @@
+FROM node:20-alpine
+
+WORKDIR /app
+
+# Install dependencies
+COPY package*.json ./
+RUN npm ci --only=production
+
+# Copy bot source
+COPY src/bot ./src/bot
+COPY scripts/start-bot.ts ./scripts/
+COPY tsconfig.json ./
+
+# Install tsx for running TypeScript
+RUN npm install -g tsx
+
+# Run bot
+CMD ["tsx", "scripts/start-bot.ts"]

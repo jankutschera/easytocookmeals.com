@@ -14,13 +14,89 @@ interface ScrapedRecipe {
 }
 
 /**
+ * Check if URL is an Instagram post/reel
+ */
+function isInstagramUrl(url: string): boolean {
+  return url.includes('instagram.com/p/') || url.includes('instagram.com/reel/');
+}
+
+/**
+ * Scrape caption from Instagram post/reel using oEmbed API
+ */
+async function scrapeInstagramCaption(url: string): Promise<ScrapedRecipe> {
+  console.log(`📸 Scraping Instagram: ${url}`);
+
+  // Clean URL (remove tracking params)
+  const cleanUrl = url.split('?')[0];
+
+  // Use Instagram's official oEmbed API
+  const oembedUrl = `https://api.instagram.com/oembed?url=${encodeURIComponent(cleanUrl)}`;
+  console.log(`📡 Calling oEmbed API: ${oembedUrl}`);
+
+  const response = await fetch(oembedUrl, {
+    headers: {
+      'User-Agent': 'Mozilla/5.0 (compatible)',
+    },
+  });
+
+  if (!response.ok) {
+    console.log(`❌ oEmbed failed: ${response.status}`);
+    throw new Error(`Instagram oEmbed API failed: ${response.status}. The post may be private.`);
+  }
+
+  const data = await response.json();
+  console.log(`✅ oEmbed response:`, JSON.stringify(data).substring(0, 200));
+
+  // oEmbed returns: title, author_name, html (embed code)
+  // The title often contains the caption (truncated)
+  const caption = data.title || '';
+  const author = data.author_name || 'Instagram';
+
+  if (!caption) {
+    throw new Error('Could not extract caption from Instagram. The post may have no caption or be private.');
+  }
+
+  console.log(`📝 Caption: ${caption.substring(0, 100)}...`);
+
+  // Parse the caption as a recipe
+  const lines = caption.split('\n').filter((l: string) => l.trim());
+  const title = lines[0]?.replace(/[🤤💚➡️📸🍽️🌱✨]/g, '').trim() || 'Instagram Recipe';
+
+  // Look for ingredients (lines starting with - or •)
+  const ingredients = lines
+    .filter((l: string) => l.trim().startsWith('-') || l.trim().startsWith('•'))
+    .map((l: string) => l.replace(/^[-•]\s*/, '').trim());
+
+  // Look for instructions (lines starting with ➡️ or numbered)
+  const instructions = lines
+    .filter((l: string) => l.includes('➡️') || /^\d+[.)]/.test(l.trim()))
+    .map((l: string) => l.replace(/^➡️\s*/, '').replace(/^\d+[.)]\s*/, '').trim());
+
+  return {
+    title,
+    description: caption,
+    ingredients,
+    instructions,
+    source: `Instagram (@${author})`,
+    sourceUrl: cleanUrl,
+  };
+}
+
+/**
  * Scrape recipe from URL
  * Supports JSON-LD schema.org/Recipe format (most recipe sites)
  */
 export async function scrapeRecipe(url: string): Promise<ScrapedRecipe> {
+  console.log(`🔍 Scraping URL: ${url}`);
+
+  // Special handling for Instagram
+  if (isInstagramUrl(url)) {
+    return scrapeInstagramCaption(url);
+  }
+
   const response = await fetch(url, {
     headers: {
-      'User-Agent': 'Mozilla/5.0 (compatible; EasyToCookMealsBot/1.0)',
+      'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
     },
   });
 
@@ -29,25 +105,34 @@ export async function scrapeRecipe(url: string): Promise<ScrapedRecipe> {
   }
 
   const html = await response.text();
+  console.log(`📄 Fetched ${html.length} bytes`);
+
   const root = parse(html);
 
   // Try to find JSON-LD recipe data
   const jsonLdScripts = root.querySelectorAll('script[type="application/ld+json"]');
+  console.log(`📋 Found ${jsonLdScripts.length} JSON-LD scripts`);
 
   for (const script of jsonLdScripts) {
     try {
       const data = JSON.parse(script.textContent);
       const recipe = findRecipeInJsonLd(data);
       if (recipe) {
-        return parseJsonLdRecipe(recipe, url);
+        console.log(`✅ Found JSON-LD recipe: ${recipe.name}`);
+        const parsed = parseJsonLdRecipe(recipe, url);
+        console.log(`📦 Parsed: ${parsed.ingredients.length} ingredients, ${parsed.instructions.length} instructions`);
+        return parsed;
       }
     } catch (e) {
-      // Continue to next script
+      console.log(`⚠️ JSON-LD parse error:`, e);
     }
   }
 
   // Fallback: Try to extract from HTML structure
-  return scrapeFromHtml(root, url);
+  console.log(`🔄 Falling back to HTML scraping`);
+  const fallback = scrapeFromHtml(root, url);
+  console.log(`📦 HTML fallback: ${fallback.ingredients.length} ingredients, ${fallback.instructions.length} instructions`);
+  return fallback;
 }
 
 /**

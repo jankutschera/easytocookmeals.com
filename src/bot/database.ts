@@ -1,9 +1,16 @@
 import { createClient } from '@supabase/supabase-js';
 
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY!
-);
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+
+console.log(`🔌 Supabase URL: ${supabaseUrl ? 'Set' : 'MISSING!'}`);
+console.log(`🔑 Supabase Key: ${supabaseKey ? 'Set (' + supabaseKey.substring(0, 10) + '...)' : 'MISSING!'}`);
+
+if (!supabaseUrl || !supabaseKey) {
+  console.error('❌ Supabase environment variables are missing!');
+}
+
+const supabase = createClient(supabaseUrl || '', supabaseKey || '');
 
 interface RewrittenRecipe {
   title: string;
@@ -36,8 +43,12 @@ interface RewrittenRecipe {
  * Save a rewritten recipe as a draft in Supabase
  */
 export async function saveRecipeDraft(recipe: RewrittenRecipe): Promise<any> {
+  console.log('💾 saveRecipeDraft called with:', recipe.title);
+  console.log('📋 Recipe data:', JSON.stringify(recipe, null, 2).substring(0, 500));
+
   // Ensure unique slug
   const slug = await ensureUniqueSlug(recipe.slug);
+  console.log('🔗 Unique slug:', slug);
 
   // 1. Insert recipe
   const { data: recipeRow, error: recipeError } = await supabase

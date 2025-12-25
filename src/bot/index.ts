@@ -7,6 +7,8 @@ import { saveRecipeDraft } from './database';
 // Session data interface
 interface SessionData {
   awaitingRecipeText: boolean;
+  awaitingInstagramCaption: boolean;
+  instagramUrl: string | null;
   pendingRecipe: any | null;
 }
 
@@ -20,6 +22,8 @@ bot.use(
   session({
     initial: (): SessionData => ({
       awaitingRecipeText: false,
+      awaitingInstagramCaption: false,
+      instagramUrl: null,
       pendingRecipe: null,
     }),
   })
@@ -30,12 +34,23 @@ const AUTHORIZED_USERS = process.env.TELEGRAM_AUTHORIZED_USERS?.split(',').map(N
 
 // Auth middleware
 bot.use(async (ctx, next) => {
-  const userId = ctx.from?.id;
-  if (!userId || !AUTHORIZED_USERS.includes(userId)) {
-    await ctx.reply('Sorry, you are not authorized to use this bot.');
-    return;
+  try {
+    const userId = ctx.from?.id;
+    console.log(`📨 Received update from user ${userId}:`, ctx.message?.text?.substring(0, 50) || ctx.update);
+
+    if (!userId || !AUTHORIZED_USERS.includes(userId)) {
+      console.log(`❌ Unauthorized user: ${userId}`);
+      await ctx.reply('Sorry, you are not authorized to use this bot.');
+      return;
+    }
+    console.log(`✅ Auth passed, calling next...`);
+    await next();
+    console.log(`✅ Handler completed`);
+  } catch (error: any) {
+    console.error(`🔥 Middleware error:`, error);
+    console.error(`🔥 Stack:`, error.stack);
+    await ctx.reply(`❌ Internal error: ${error.message}`);
   }
-  await next();
 });
 
 // Start command
@@ -57,11 +72,33 @@ bot.command('start', async (ctx) => {
   );
 });
 
+// Check if URL is Instagram
+function isInstagramUrl(url: string): boolean {
+  return url.includes('instagram.com/p/') || url.includes('instagram.com/reel/');
+}
+
 // Import from URL
 bot.command('url', async (ctx) => {
   const url = ctx.match;
   if (!url) {
     await ctx.reply('Please provide a URL. Example: /url https://example.com/recipe');
+    return;
+  }
+
+  // Special handling for Instagram - ask for caption
+  if (isInstagramUrl(url)) {
+    ctx.session.awaitingInstagramCaption = true;
+    ctx.session.instagramUrl = url.split('?')[0]; // Clean URL
+    await ctx.reply(
+      `📸 *Instagram erkannt!*\n\n` +
+      `Instagram blockiert leider automatisches Scraping. Bitte:\n\n` +
+      `1. Öffne das Reel/Post in der Instagram App\n` +
+      `2. Tippe auf die Caption, um sie komplett anzuzeigen\n` +
+      `3. Kopiere den Text (lang drücken → "Kopieren")\n` +
+      `4. Paste die Caption hier als nächste Nachricht\n\n` +
+      `💡 *Tipp:* Am Desktop ist Kopieren einfacher!`,
+      { parse_mode: 'Markdown' }
+    );
     return;
   }
 
@@ -96,7 +133,9 @@ bot.command('url', async (ctx) => {
 
 // Paste recipe text
 bot.command('paste', async (ctx) => {
+  console.log('🔵 /paste command ENTERED');
   ctx.session.awaitingRecipeText = true;
+  console.log('🔵 awaitingRecipeText set to true');
   await ctx.reply(
     '📝 Please paste the recipe text now.\n\n' +
       'Include:\n' +
@@ -105,12 +144,132 @@ bot.command('paste', async (ctx) => {
       '- Instructions\n' +
       '- Any notes or tips'
   );
+  console.log('🔵 /paste reply sent');
 });
 
-// Handle pasted text
+// Preview command - MUST be before message:text handler!
+bot.command('preview', async (ctx) => {
+  console.log('👁️ /preview command received');
+  if (!ctx.session.pendingRecipe) {
+    await ctx.reply('No pending recipe. Use /url or /paste to add one.');
+    return;
+  }
+  await sendRecipePreview(ctx, ctx.session.pendingRecipe);
+});
+
+// Publish command - MUST be before message:text handler!
+bot.command('publish', async (ctx) => {
+  console.log('📤 /publish command received');
+  console.log('📦 pendingRecipe:', ctx.session.pendingRecipe ? 'EXISTS' : 'NULL');
+
+  if (!ctx.session.pendingRecipe) {
+    console.log('⚠️ No pending recipe');
+    await ctx.reply('No pending recipe to publish. Use /url or /paste first.');
+    return;
+  }
+
+  await ctx.reply('💾 Saving recipe...');
+
+  try {
+    const recipe = await saveRecipeDraft(ctx.session.pendingRecipe);
+    ctx.session.pendingRecipe = null;
+
+    await ctx.reply(
+      `✅ *Recipe saved!*\n\n` +
+        `Title: ${recipe.title}\n` +
+        `Status: Draft\n` +
+        `Slug: ${recipe.slug}\n\n` +
+        `View in admin dashboard to publish.`,
+      { parse_mode: 'Markdown' }
+    );
+  } catch (error: any) {
+    console.error('Save error:', error);
+    await ctx.reply(`❌ Error saving: ${error.message}`);
+  }
+});
+
+// Cancel command - MUST be before message:text handler!
+bot.command('cancel', async (ctx) => {
+  console.log('🚫 /cancel command received');
+  ctx.session.pendingRecipe = null;
+  ctx.session.awaitingRecipeText = false;
+  ctx.session.awaitingInstagramCaption = false;
+  ctx.session.instagramUrl = null;
+  await ctx.reply('❌ Operation cancelled.');
+});
+
+// Handle pasted text - MUST be AFTER all command handlers!
 bot.on('message:text', async (ctx) => {
-  // Skip if it's a command
-  if (ctx.message.text.startsWith('/')) return;
+  console.log('📝 message:text handler entered');
+  console.log('📝 Session state:', JSON.stringify({
+    awaitingRecipeText: ctx.session.awaitingRecipeText,
+    awaitingInstagramCaption: ctx.session.awaitingInstagramCaption,
+    hasPendingRecipe: !!ctx.session.pendingRecipe
+  }));
+
+  // Skip if it's a command - but DON'T stop the chain, let command handlers run
+  if (ctx.message.text.startsWith('/')) {
+    console.log('📝 Skipping - is a command, passing to command handlers');
+    return; // Commands are handled by bot.command() handlers registered BEFORE this
+  }
+
+  // Handle Instagram caption paste
+  if (ctx.session.awaitingInstagramCaption) {
+    ctx.session.awaitingInstagramCaption = false;
+    const instagramUrl = ctx.session.instagramUrl;
+    ctx.session.instagramUrl = null;
+
+    await ctx.reply('📥 Verarbeite Instagram-Rezept...');
+
+    try {
+      // Parse the caption
+      const caption = ctx.message.text;
+      const lines = caption.split('\n').filter(l => l.trim());
+      const title = lines[0]?.replace(/[🤤💚➡️📸🍽️🌱✨]/g, '').trim() || 'Instagram Recipe';
+
+      // Look for ingredients
+      const ingredients = lines
+        .filter(l => l.trim().startsWith('-') || l.trim().startsWith('•'))
+        .map(l => l.replace(/^[-•]\s*/, '').trim());
+
+      // Look for instructions
+      const instructions = lines
+        .filter(l => l.includes('➡️') || /^\d+[.)]/.test(l.trim()))
+        .map(l => l.replace(/^➡️\s*/, '').replace(/^\d+[.)]\s*/, '').trim());
+
+      const rawRecipe = {
+        title,
+        description: caption,
+        ingredients,
+        instructions,
+        source: 'Instagram',
+        sourceUrl: instagramUrl || undefined,
+      };
+
+      await ctx.reply(`✅ Rezept erkannt: *${title}*`, { parse_mode: 'Markdown' });
+
+      // Rewrite with AI
+      await ctx.reply('✨ Schreibe im Brand Voice um...');
+      const rewrittenRecipe = await rewriteRecipe(rawRecipe);
+      await ctx.reply('✅ Rezept umgeschrieben!');
+
+      // Generate image
+      await ctx.reply('🎨 Generiere Bild...');
+      const imageUrl = await generateRecipeImage(rewrittenRecipe);
+      rewrittenRecipe.featured_image_url = imageUrl;
+      await ctx.reply('✅ Bild generiert!');
+
+      // Store in session
+      ctx.session.pendingRecipe = rewrittenRecipe;
+
+      // Show preview
+      await sendRecipePreview(ctx, rewrittenRecipe);
+    } catch (error: any) {
+      console.error('Instagram caption error:', error);
+      await ctx.reply(`❌ Error: ${error.message}`);
+    }
+    return;
+  }
 
   // Check if we're awaiting recipe text
   if (!ctx.session.awaitingRecipeText) {
@@ -154,49 +313,6 @@ bot.on('message:text', async (ctx) => {
     console.error('Text processing error:', error);
     await ctx.reply(`❌ Error: ${error.message}`);
   }
-});
-
-// Preview command
-bot.command('preview', async (ctx) => {
-  if (!ctx.session.pendingRecipe) {
-    await ctx.reply('No pending recipe. Use /url or /paste to add one.');
-    return;
-  }
-  await sendRecipePreview(ctx, ctx.session.pendingRecipe);
-});
-
-// Publish command
-bot.command('publish', async (ctx) => {
-  if (!ctx.session.pendingRecipe) {
-    await ctx.reply('No pending recipe to publish. Use /url or /paste first.');
-    return;
-  }
-
-  await ctx.reply('💾 Saving recipe...');
-
-  try {
-    const recipe = await saveRecipeDraft(ctx.session.pendingRecipe);
-    ctx.session.pendingRecipe = null;
-
-    await ctx.reply(
-      `✅ *Recipe saved!*\n\n` +
-        `Title: ${recipe.title}\n` +
-        `Status: Draft\n` +
-        `Slug: ${recipe.slug}\n\n` +
-        `View in admin dashboard to publish.`,
-      { parse_mode: 'Markdown' }
-    );
-  } catch (error: any) {
-    console.error('Save error:', error);
-    await ctx.reply(`❌ Error saving: ${error.message}`);
-  }
-});
-
-// Cancel command
-bot.command('cancel', async (ctx) => {
-  ctx.session.pendingRecipe = null;
-  ctx.session.awaitingRecipeText = false;
-  await ctx.reply('❌ Operation cancelled.');
 });
 
 // Helper: Send recipe preview
@@ -275,9 +391,15 @@ function extractInstructions(text: string): string[] {
   return instructions;
 }
 
+// Catch-all for unhandled messages
+bot.on('message', async (ctx) => {
+  console.log('⚪ Unhandled message:', ctx.message);
+});
+
 // Error handler
 bot.catch((err) => {
-  console.error('Bot error:', err);
+  console.error('🔥 Bot error:', err);
+  console.error('🔥 Error stack:', err.stack);
 });
 
 // Export for use

@@ -125,7 +125,7 @@ Return a JSON object with this exact structure:
 Ensure ALL ingredients are vegan. Replace any non-vegan items with plant-based alternatives.`;
 
   const response = await anthropic.messages.create({
-    model: 'claude-sonnet-4-20250514',
+    model: 'claude-sonnet-4-5-20250929',
     max_tokens: 4000,
     system: BRAND_VOICE_PROMPT,
     messages: [
@@ -142,9 +142,19 @@ Ensure ALL ingredients are vegan. Replace any non-vegan items with plant-based a
     throw new Error('Unexpected response type');
   }
 
-  // Parse JSON from the response
-  const jsonMatch = content.text.match(/\{[\s\S]*\}/);
+  // Parse JSON from the response - handle markdown code blocks
+  let text = content.text;
+
+  // Remove markdown code blocks if present
+  const codeBlockMatch = text.match(/```(?:json)?\s*([\s\S]*?)```/);
+  if (codeBlockMatch) {
+    text = codeBlockMatch[1];
+  }
+
+  // Find JSON object
+  const jsonMatch = text.match(/\{[\s\S]*\}/);
   if (!jsonMatch) {
+    console.error('AI response without JSON:', content.text.substring(0, 500));
     throw new Error('Could not find JSON in response');
   }
 
@@ -152,6 +162,7 @@ Ensure ALL ingredients are vegan. Replace any non-vegan items with plant-based a
     const rewritten = JSON.parse(jsonMatch[0]) as RewrittenRecipe;
     return rewritten;
   } catch (e) {
+    console.error('Failed to parse JSON:', jsonMatch[0].substring(0, 500));
     throw new Error('Failed to parse rewritten recipe JSON');
   }
 }
