@@ -3,9 +3,15 @@
 import Script from 'next/script';
 import { useEffect } from 'react';
 
-// GTM Container ID - will be set up later
+// Tracking IDs from environment
 const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID || '';
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID || '';
+
+// Analytics subdomains
+const PLAUSIBLE_DOMAIN = 'applause.easytocookmeals.com';
+const UMAMI_DOMAIN = 'umami.easytocookmeals.com';
+const STAPE_DOMAIN = 'scripte.easytocookmeals.com'; // Server-side GTM
+const UMAMI_WEBSITE_ID = ''; // Will be set after Umami setup
 
 export default function Analytics() {
   useEffect(() => {
@@ -36,28 +42,25 @@ export default function Analytics() {
       ad_personalization: 'granted',
       region: ['US', 'CA', 'AU', 'NZ', 'JP', 'KR', 'SG', 'HK', 'TW'],
     });
-  }, []);
 
-  // Don't render scripts if no tracking IDs configured
-  if (!GTM_ID && !GA_ID) {
-    return null;
-  }
+    // Initialize GTM
+    if (GTM_ID) {
+      gtag('js', new Date());
+      window.dataLayer.push({
+        'gtm.start': new Date().getTime(),
+        event: 'gtm.js'
+      });
+    }
+  }, []);
 
   return (
     <>
-      {/* Google Tag Manager - using external script approach */}
+      {/* Google Tag Manager */}
       {GTM_ID && (
         <Script
-          id="gtm-init"
+          id="gtm-script"
           strategy="afterInteractive"
           src={`https://www.googletagmanager.com/gtm.js?id=${GTM_ID}`}
-          onLoad={() => {
-            window.dataLayer = window.dataLayer || [];
-            window.dataLayer.push({
-              'gtm.start': new Date().getTime(),
-              event: 'gtm.js'
-            });
-          }}
         />
       )}
 
@@ -71,16 +74,36 @@ export default function Analytics() {
           <Script
             id="ga4-config"
             strategy="afterInteractive"
-            onLoad={() => {
+          >
+            {`
               window.dataLayer = window.dataLayer || [];
-              function gtag(...args: unknown[]) {
-                window.dataLayer?.push(args);
-              }
+              function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
-              gtag('config', GA_ID);
-            }}
-          />
+              gtag('config', '${GA_ID}');
+            `}
+          </Script>
         </>
+      )}
+
+      {/* Plausible Analytics (GDPR-compliant, cookieless) */}
+      <Script
+        defer
+        data-domain="easytocookmeals.com"
+        src={`https://${PLAUSIBLE_DOMAIN}/js/script.file-downloads.hash.outbound-links.pageview-props.tagged-events.js`}
+        strategy="afterInteractive"
+      />
+      <Script id="plausible-helper" strategy="afterInteractive">
+        {`window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }`}
+      </Script>
+
+      {/* Umami Analytics (cookieless, privacy-focused) */}
+      {UMAMI_WEBSITE_ID && (
+        <Script
+          defer
+          src={`https://${UMAMI_DOMAIN}/script.js`}
+          data-website-id={UMAMI_WEBSITE_ID}
+          strategy="afterInteractive"
+        />
       )}
     </>
   );
@@ -91,5 +114,6 @@ declare global {
   interface Window {
     gtag?: (...args: unknown[]) => void;
     dataLayer?: unknown[];
+    plausible?: (...args: unknown[]) => void;
   }
 }
