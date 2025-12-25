@@ -2,6 +2,7 @@ import Link from "next/link";
 import { getAllRecipesAdmin } from '@/lib/admin';
 import { RecipeList } from '@/components/admin/RecipeList';
 import { AdminStats } from '@/components/admin/AdminStats';
+import { LogoutButton } from '@/components/admin/LogoutButton';
 
 export const dynamic = 'force-dynamic';
 
@@ -28,6 +29,7 @@ export default async function AdminPage() {
               <p className="text-gray-500">Manage your Easy To Cook Meals recipes</p>
             </div>
             <div className="flex items-center gap-4">
+              <LogoutButton />
               <Link
                 href="/"
                 className="text-gray-600 hover:text-coral-500"
