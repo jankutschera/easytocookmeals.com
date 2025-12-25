@@ -17,7 +17,7 @@ const PLAUSIBLE_SITE = 'easytocookmeals.com';
 
 // Umami Config (first-party subdomain)
 const UMAMI_DOMAIN = 'umami.easytocookmeals.com';
-const UMAMI_WEBSITE_ID = ''; // TODO: Add Website ID from Umami admin
+const UMAMI_WEBSITE_ID = '4bd7a9c3-7c5d-4793-9403-ee9f23dce4a0';
 
 export default function Analytics() {
   useEffect(() => {
