@@ -1,10 +1,6 @@
 import { createServerClient } from './supabase';
 import type {
   Recipe,
-  IngredientGroup,
-  Ingredient,
-  Instruction,
-  Nutrition,
   RecipeWithRelations,
 } from '@/types/recipe';
 
@@ -15,6 +11,11 @@ export async function getRecipeBySlug(
   slug: string
 ): Promise<RecipeWithRelations | null> {
   const supabase = createServerClient();
+
+  if (!supabase) {
+    console.warn('Supabase not configured');
+    return null;
+  }
 
   // Get recipe
   const { data: recipe, error: recipeError } = await supabase
@@ -99,6 +100,11 @@ export async function getRecipeBySlug(
 export async function getAllRecipes(): Promise<Recipe[]> {
   const supabase = createServerClient();
 
+  if (!supabase) {
+    console.warn('Supabase not configured');
+    return [];
+  }
+
   const { data, error } = await supabase
     .from('recipes')
     .select('*')
@@ -119,6 +125,11 @@ export async function getAllRecipes(): Promise<Recipe[]> {
 export async function getAllRecipeSlugs(): Promise<string[]> {
   const supabase = createServerClient();
 
+  if (!supabase) {
+    console.warn('Supabase not configured');
+    return [];
+  }
+
   const { data, error } = await supabase
     .from('recipes')
     .select('slug')
@@ -137,6 +148,11 @@ export async function getAllRecipeSlugs(): Promise<string[]> {
  */
 export async function searchRecipes(query: string): Promise<Recipe[]> {
   const supabase = createServerClient();
+
+  if (!supabase) {
+    console.warn('Supabase not configured');
+    return [];
+  }
 
   const { data, error } = await supabase
     .from('recipes')
@@ -162,6 +178,11 @@ export async function searchRecipes(query: string): Promise<Recipe[]> {
 export async function getRecipesByCuisine(cuisine: string): Promise<Recipe[]> {
   const supabase = createServerClient();
 
+  if (!supabase) {
+    console.warn('Supabase not configured');
+    return [];
+  }
+
   const { data, error } = await supabase
     .from('recipes')
     .select('*')
@@ -182,6 +203,11 @@ export async function getRecipesByCuisine(cuisine: string): Promise<Recipe[]> {
  */
 export async function getRecipesByCourse(course: string): Promise<Recipe[]> {
   const supabase = createServerClient();
+
+  if (!supabase) {
+    console.warn('Supabase not configured');
+    return [];
+  }
 
   const { data, error } = await supabase
     .from('recipes')

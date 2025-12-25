@@ -37,7 +37,7 @@ function getStoredConsent(): { status: ConsentStatus; consent: ConsentState } | 
 
 function storeConsent(status: ConsentStatus, consent: ConsentState): void {
   try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify({ status, consent }));
+    localStorage.setItem(STORAGE_KEY, JSON.stringify({ status, consent, timestamp: Date.now() }));
   } catch {}
 }
 
@@ -56,25 +56,29 @@ function updateGtagConsent(consent: ConsentState): void {
 
   // Also push to dataLayer for GTM
   window.dataLayer = window.dataLayer || [];
-  window.dataLayer.push(['event', 'consent_update', {
+  window.dataLayer.push({
+    event: 'consent_update',
     consent_analytics: consent.analytics ? 'granted' : 'denied',
     consent_marketing: consent.marketing ? 'granted' : 'denied',
-  }]);
+  });
 }
 
 export default function CookieBanner() {
   const [showBanner, setShowBanner] = useState(false);
   const [showSettings, setShowSettings] = useState(false);
+  const [hasConsented, setHasConsented] = useState(false);
   const [consent, setConsent] = useState<ConsentState>({
-    analytics: false,
-    marketing: false,
+    analytics: true,
+    marketing: true,
   });
 
   useEffect(() => {
     // Check if already consented
     const stored = getStoredConsent();
     if (stored) {
+      setConsent(stored.consent);
       updateGtagConsent(stored.consent);
+      setHasConsented(true);
       return;
     }
 
@@ -86,6 +90,7 @@ export default function CookieBanner() {
       const fullConsent = { analytics: true, marketing: true };
       storeConsent('accepted', fullConsent);
       updateGtagConsent(fullConsent);
+      setHasConsented(true);
     }
   }, []);
 
@@ -94,6 +99,7 @@ export default function CookieBanner() {
     storeConsent('accepted', fullConsent);
     updateGtagConsent(fullConsent);
     setShowBanner(false);
+    setHasConsented(true);
   };
 
   const handleRejectAll = () => {
@@ -101,6 +107,7 @@ export default function CookieBanner() {
     storeConsent('rejected', noConsent);
     updateGtagConsent(noConsent);
     setShowBanner(false);
+    setHasConsented(true);
   };
 
   const handleSaveSettings = () => {
@@ -108,42 +115,70 @@ export default function CookieBanner() {
     updateGtagConsent(consent);
     setShowBanner(false);
     setShowSettings(false);
+    setHasConsented(true);
   };
 
-  if (!showBanner) return null;
+  const handleReopenBanner = () => {
+    const stored = getStoredConsent();
+    if (stored) {
+      setConsent(stored.consent);
+    }
+    setShowBanner(true);
+  };
 
   return (
     <>
-      {/* Backdrop */}
-      <div
-        className="fixed inset-0 bg-ink/40 backdrop-blur-sm z-[9998]"
-        onClick={() => {}} // Prevent closing on backdrop click
-      />
-
-      {/* Banner Modal */}
-      <div className="fixed inset-0 flex items-center justify-center z-[9999] p-4">
-        <div
-          className="bg-parchment rounded-organic shadow-warm-xl max-w-lg w-full overflow-hidden animate-fade-in-up"
-          role="dialog"
-          aria-labelledby="cookie-title"
-          aria-describedby="cookie-description"
+      {/* Re-open Button - shown when banner is hidden and user has consented */}
+      {!showBanner && hasConsented && (
+        <button
+          onClick={handleReopenBanner}
+          className="fixed bottom-5 left-5 w-12 h-12 bg-parchment border border-sand-300 rounded-full text-xl cursor-pointer z-[9997] flex items-center justify-center shadow-warm-sm hover:border-terracotta-500 hover:scale-105 transition-all duration-200"
+          title="Cookie Settings"
+          aria-label="Open cookie settings"
         >
-          {/* Header */}
-          <div className="px-6 pt-6 pb-4">
-            <h2
-              id="cookie-title"
-              className="font-display text-2xl text-ink mb-2"
+          🍪
+        </button>
+      )}
+
+      {showBanner && (
+        <>
+          {/* Backdrop */}
+          <div
+            className="fixed inset-0 bg-ink/40 backdrop-blur-sm z-[9998]"
+            onClick={() => {}}
+          />
+
+          {/* Banner Modal */}
+          <div className="fixed inset-0 flex items-center justify-center z-[9999] p-4">
+            <div
+              className="bg-parchment rounded-organic shadow-warm-xl max-w-lg w-full overflow-hidden animate-fade-in-up"
+              role="dialog"
+              aria-labelledby="cookie-title"
+              aria-describedby="cookie-description"
             >
-              We Value Your Privacy
-            </h2>
-            <p
-              id="cookie-description"
-              className="font-body text-ink-light text-sm leading-relaxed"
-            >
-              We use cookies to enhance your browsing experience and analyze our traffic.
-              Choose your preferences below.
-            </p>
-          </div>
+              {/* Accent line at top */}
+              <div className="h-1 bg-gradient-to-r from-terracotta-500 via-sage-400 to-terracotta-500" />
+
+              {/* Header */}
+              <div className="px-6 pt-6 pb-4">
+                <h2
+                  id="cookie-title"
+                  className="font-display text-2xl text-ink mb-1"
+                >
+                  A Taste of Transparency
+                </h2>
+                <p className="font-accent text-terracotta-600 text-lg mb-3">
+                  Fresh ingredients, honest tracking.
+                </p>
+                <p
+                  id="cookie-description"
+                  className="font-body text-ink-light text-sm leading-relaxed"
+                >
+                  We use <strong className="text-ink">analytics</strong> to see which recipes you love,
+                  and <strong className="text-ink">marketing</strong> to share plant-based goodness with more food lovers.
+                  Your kitchen, your rules.
+                </p>
+              </div>
 
           {/* Settings Panel */}
           {showSettings && (
@@ -248,17 +283,19 @@ export default function CookieBanner() {
             )}
           </div>
 
-          {/* Privacy Link */}
-          <div className="px-6 pb-4 text-center">
-            <a
-              href="/privacy"
-              className="font-body text-xs text-ink-muted hover:text-terracotta-500 underline transition-colors"
-            >
-              Read our Privacy Policy
-            </a>
+              {/* Privacy Link */}
+              <div className="px-6 pb-4 text-center">
+                <a
+                  href="/privacy"
+                  className="font-body text-xs text-ink-muted hover:text-terracotta-500 underline transition-colors"
+                >
+                  Read our Privacy Policy
+                </a>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
+        </>
+      )}
     </>
   );
 }

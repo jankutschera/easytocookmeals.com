@@ -1,9 +1,16 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { supabase } from '@/lib/supabase';
+import { supabase, isSupabaseConfigured } from '@/lib/supabase';
 
 // GET /api/recipes - List all recipes
 export async function GET(request: NextRequest) {
   try {
+    if (!isSupabaseConfigured || !supabase) {
+      return NextResponse.json(
+        { error: 'Service temporarily unavailable' },
+        { status: 503 }
+      );
+    }
+
     const { searchParams } = new URL(request.url);
     const status = searchParams.get('status') || 'published';
     const limit = parseInt(searchParams.get('limit') || '50');
@@ -40,6 +47,13 @@ export async function GET(request: NextRequest) {
 // POST /api/recipes - Create a new recipe
 export async function POST(request: NextRequest) {
   try {
+    if (!isSupabaseConfigured || !supabase) {
+      return NextResponse.json(
+        { error: 'Service temporarily unavailable' },
+        { status: 503 }
+      );
+    }
+
     const body = await request.json();
 
     const { data, error } = await supabase

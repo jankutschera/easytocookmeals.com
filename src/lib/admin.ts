@@ -7,6 +7,11 @@ import type { Recipe } from '@/types/recipe';
 export async function getAllRecipesAdmin(): Promise<Recipe[]> {
   const supabase = createServerClient();
 
+  if (!supabase) {
+    console.warn('Supabase not configured');
+    return [];
+  }
+
   const { data, error } = await supabase
     .from('recipes')
     .select('*')
@@ -25,6 +30,11 @@ export async function getAllRecipesAdmin(): Promise<Recipe[]> {
  */
 export async function getRecipeById(id: string): Promise<Recipe | null> {
   const supabase = createServerClient();
+
+  if (!supabase) {
+    console.warn('Supabase not configured');
+    return null;
+  }
 
   const { data, error } = await supabase
     .from('recipes')
@@ -49,6 +59,10 @@ export async function updateRecipeStatus(
 ): Promise<void> {
   const supabase = createServerClient();
 
+  if (!supabase) {
+    throw new Error('Database not configured');
+  }
+
   const updates: any = { status };
   if (status === 'published') {
     updates.published_at = new Date().toISOString();
@@ -70,6 +84,10 @@ export async function updateRecipeStatus(
 export async function deleteRecipe(id: string): Promise<void> {
   const supabase = createServerClient();
 
+  if (!supabase) {
+    throw new Error('Database not configured');
+  }
+
   const { error } = await supabase
     .from('recipes')
     .delete()
@@ -88,6 +106,10 @@ export async function updateRecipe(
   data: Partial<Recipe>
 ): Promise<void> {
   const supabase = createServerClient();
+
+  if (!supabase) {
+    throw new Error('Database not configured');
+  }
 
   const { error } = await supabase
     .from('recipes')

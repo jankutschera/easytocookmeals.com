@@ -23,6 +23,13 @@ export async function POST(request: NextRequest) {
 
     const supabase = createServerClient();
 
+    if (!supabase) {
+      return NextResponse.json(
+        { error: 'Service temporarily unavailable' },
+        { status: 503 }
+      );
+    }
+
     // Insert rating
     const { data, error } = await supabase
       .from('ratings')
@@ -64,6 +71,13 @@ export async function GET(request: NextRequest) {
   }
 
   const supabase = createServerClient();
+
+  if (!supabase) {
+    return NextResponse.json(
+      { error: 'Service temporarily unavailable' },
+      { status: 503 }
+    );
+  }
 
   // Get ratings for recipe
   const { data: ratings, error } = await supabase
