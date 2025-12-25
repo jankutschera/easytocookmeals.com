@@ -127,7 +127,14 @@ bot.command('url', async (ctx) => {
     await sendRecipePreview(ctx, rewrittenRecipe);
   } catch (error: any) {
     console.error('URL import error:', error);
-    await ctx.reply(`❌ Error: ${error.message}`);
+    await ctx.reply(
+      `❌ *Kein Rezept gefunden*\n\n` +
+      `Die URL konnte nicht gescraped werden:\n` +
+      `_${error.message}_\n\n` +
+      `📝 *Alternative:* Du kannst das Rezept manuell eingeben!\n` +
+      `Nutze /paste und füge dann den Rezepttext ein.`,
+      { parse_mode: 'Markdown' }
+    );
   }
 });
 
