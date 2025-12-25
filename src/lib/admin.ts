@@ -68,9 +68,12 @@ export async function updateRecipeStatus(
   id: string,
   status: 'draft' | 'published' | 'archived'
 ): Promise<void> {
+  console.log(`📝 updateRecipeStatus called: id=${id}, status=${status}`);
+
   const supabase = createServerClient();
 
   if (!supabase) {
+    console.error('❌ Supabase client is null');
     throw new Error('Database not configured');
   }
 
@@ -79,14 +82,20 @@ export async function updateRecipeStatus(
     updates.published_at = new Date().toISOString();
   }
 
-  const { error } = await supabase
+  console.log('📤 Updating recipe with:', updates);
+
+  const { data, error } = await supabase
     .from('recipes')
     .update(updates)
-    .eq('id', id);
+    .eq('id', id)
+    .select();
 
   if (error) {
+    console.error('❌ Update error:', error);
     throw new Error(`Failed to update status: ${error.message}`);
   }
+
+  console.log('✅ Update successful:', data);
 }
 
 /**
@@ -114,20 +123,28 @@ export async function deleteRecipe(id: string): Promise<void> {
  */
 export async function updateRecipe(
   id: string,
-  data: Partial<Recipe>
+  recipeData: Partial<Recipe>
 ): Promise<void> {
+  console.log(`📝 updateRecipe called: id=${id}`);
+  console.log('📦 Data:', JSON.stringify(recipeData).substring(0, 200));
+
   const supabase = createServerClient();
 
   if (!supabase) {
+    console.error('❌ Supabase client is null');
     throw new Error('Database not configured');
   }
 
-  const { error } = await supabase
+  const { data, error } = await supabase
     .from('recipes')
-    .update(data)
-    .eq('id', id);
+    .update(recipeData)
+    .eq('id', id)
+    .select();
 
   if (error) {
+    console.error('❌ Update recipe error:', error);
     throw new Error(`Failed to update recipe: ${error.message}`);
   }
+
+  console.log('✅ Recipe updated:', data);
 }
