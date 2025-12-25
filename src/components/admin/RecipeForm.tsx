@@ -120,7 +120,7 @@ export function RecipeForm({ recipe, mode }: RecipeFormProps) {
               value={formData.title}
               onChange={handleTitleChange}
               required
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-coral-500 focus:border-coral-500"
+              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-terracotta-500 focus:border-terracotta-500"
               placeholder="e.g., Creamy Vegan Pasta"
             />
           </div>
@@ -135,7 +135,7 @@ export function RecipeForm({ recipe, mode }: RecipeFormProps) {
               value={formData.slug}
               onChange={handleChange}
               required
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-coral-500 focus:border-coral-500"
+              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-terracotta-500 focus:border-terracotta-500"
               placeholder="creamy-vegan-pasta"
             />
           </div>
@@ -149,7 +149,7 @@ export function RecipeForm({ recipe, mode }: RecipeFormProps) {
               value={formData.description}
               onChange={handleChange}
               rows={2}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-coral-500 focus:border-coral-500"
+              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-terracotta-500 focus:border-terracotta-500"
               placeholder="A short description for SEO..."
             />
           </div>
@@ -163,7 +163,7 @@ export function RecipeForm({ recipe, mode }: RecipeFormProps) {
               value={formData.story}
               onChange={handleChange}
               rows={4}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-coral-500 focus:border-coral-500"
+              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-terracotta-500 focus:border-terracotta-500"
               placeholder="The backstory or introduction for this recipe..."
             />
           </div>
@@ -185,7 +185,7 @@ export function RecipeForm({ recipe, mode }: RecipeFormProps) {
               value={formData.prep_time_minutes}
               onChange={handleChange}
               min="0"
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-coral-500 focus:border-coral-500"
+              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-terracotta-500 focus:border-terracotta-500"
             />
           </div>
 
@@ -199,7 +199,7 @@ export function RecipeForm({ recipe, mode }: RecipeFormProps) {
               value={formData.cook_time_minutes}
               onChange={handleChange}
               min="0"
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-coral-500 focus:border-coral-500"
+              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-terracotta-500 focus:border-terracotta-500"
             />
           </div>
 
@@ -213,7 +213,7 @@ export function RecipeForm({ recipe, mode }: RecipeFormProps) {
               value={formData.servings}
               onChange={handleChange}
               min="1"
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-coral-500 focus:border-coral-500"
+              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-terracotta-500 focus:border-terracotta-500"
             />
           </div>
 
@@ -226,7 +226,7 @@ export function RecipeForm({ recipe, mode }: RecipeFormProps) {
               name="servings_unit"
               value={formData.servings_unit}
               onChange={handleChange}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-coral-500 focus:border-coral-500"
+              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-terracotta-500 focus:border-terracotta-500"
               placeholder="servings"
             />
           </div>
@@ -247,7 +247,7 @@ export function RecipeForm({ recipe, mode }: RecipeFormProps) {
               name="cuisine"
               value={formData.cuisine}
               onChange={handleChange}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-coral-500 focus:border-coral-500"
+              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-terracotta-500 focus:border-terracotta-500"
               placeholder="Italian, Mediterranean"
             />
           </div>
@@ -261,7 +261,7 @@ export function RecipeForm({ recipe, mode }: RecipeFormProps) {
               name="course"
               value={formData.course}
               onChange={handleChange}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-coral-500 focus:border-coral-500"
+              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-terracotta-500 focus:border-terracotta-500"
               placeholder="Main Course, Dinner"
             />
           </div>
@@ -275,7 +275,7 @@ export function RecipeForm({ recipe, mode }: RecipeFormProps) {
               name="keywords"
               value={formData.keywords}
               onChange={handleChange}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-coral-500 focus:border-coral-500"
+              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-terracotta-500 focus:border-terracotta-500"
               placeholder="vegan, quick, healthy"
             />
           </div>
@@ -295,7 +295,7 @@ export function RecipeForm({ recipe, mode }: RecipeFormProps) {
             name="featured_image_url"
             value={formData.featured_image_url}
             onChange={handleChange}
-            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-coral-500 focus:border-coral-500"
+            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-terracotta-500 focus:border-terracotta-500"
             placeholder="https://..."
           />
           {formData.featured_image_url && (
@@ -316,7 +316,7 @@ export function RecipeForm({ recipe, mode }: RecipeFormProps) {
           name="status"
           value={formData.status}
           onChange={handleChange}
-          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-coral-500 focus:border-coral-500"
+          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-terracotta-500 focus:border-terracotta-500"
         >
           <option value="draft">Draft</option>
           <option value="published">Published</option>
@@ -336,7 +336,7 @@ export function RecipeForm({ recipe, mode }: RecipeFormProps) {
         <button
           type="submit"
           disabled={loading}
-          className="px-6 py-2 bg-coral-500 text-white rounded-lg hover:bg-coral-600 disabled:opacity-50 transition-colors"
+          className="px-6 py-2 bg-terracotta-500 text-white rounded-lg hover:bg-terracotta-600 disabled:opacity-50 transition-colors"
         >
           {loading ? 'Saving...' : mode === 'create' ? 'Create Recipe' : 'Save Changes'}
         </button>
