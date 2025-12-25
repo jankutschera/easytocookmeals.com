@@ -1,8 +1,13 @@
+import { createClient } from '@supabase/supabase-js';
+
 /**
  * Generate blogger-style food images using fal.ai
  * Style: iPhone photography, natural lighting, real kitchen setting
  * NOT professional studio photography
  */
+
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
 
 interface RecipeForImage {
   title: string;
@@ -71,7 +76,15 @@ No text, no watermarks, no logos.
     }
 
     const result = await response.json();
-    return result.images?.[0]?.url || '';
+    const tempUrl = result.images?.[0]?.url || '';
+
+    if (!tempUrl) {
+      return '';
+    }
+
+    // Upload to Supabase Storage for permanent storage
+    const permanentUrl = await uploadImageToStorage(tempUrl, recipe.title);
+    return permanentUrl || tempUrl; // Fall back to temp URL if upload fails
   } catch (error) {
     console.error('Image generation error:', error);
     return '';
@@ -125,6 +138,64 @@ Bright, airy, clean aesthetic with pops of color from fresh vegetables.
     return result.images?.[0]?.url || '';
   } catch (error) {
     console.error('Pinterest image generation error:', error);
+    return '';
+  }
+}
+
+/**
+ * Upload image from URL to Supabase Storage
+ * Returns the permanent public URL
+ */
+async function uploadImageToStorage(imageUrl: string, title: string): Promise<string> {
+  if (!supabaseUrl || !supabaseKey) {
+    console.warn('Supabase not configured, skipping image upload');
+    return '';
+  }
+
+  try {
+    const supabase = createClient(supabaseUrl, supabaseKey);
+
+    // Download image from fal.ai
+    const response = await fetch(imageUrl);
+    if (!response.ok) {
+      throw new Error('Failed to download image');
+    }
+
+    const blob = await response.blob();
+    const arrayBuffer = await blob.arrayBuffer();
+    const buffer = Buffer.from(arrayBuffer);
+
+    // Generate filename from title
+    const slug = title
+      .toLowerCase()
+      .replace(/[^a-z0-9\s-]/g, '')
+      .replace(/\s+/g, '-')
+      .substring(0, 50);
+    const timestamp = Date.now();
+    const filename = `recipes/${slug}-${timestamp}.jpg`;
+
+    // Upload to Supabase Storage
+    const { data, error } = await supabase.storage
+      .from('images')
+      .upload(filename, buffer, {
+        contentType: 'image/jpeg',
+        upsert: false,
+      });
+
+    if (error) {
+      console.error('Supabase upload error:', error);
+      return '';
+    }
+
+    // Get public URL
+    const { data: urlData } = supabase.storage
+      .from('images')
+      .getPublicUrl(filename);
+
+    console.log(`✅ Image uploaded to Supabase: ${urlData.publicUrl}`);
+    return urlData.publicUrl;
+  } catch (error) {
+    console.error('Image upload error:', error);
     return '';
   }
 }
