@@ -3,15 +3,18 @@
 import Script from 'next/script';
 import { useEffect } from 'react';
 
-// Tracking IDs from environment
-const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID || '';
-const GA_ID = process.env.NEXT_PUBLIC_GA_ID || '';
+// GTM Config (server-side proxy via Stape)
+const GTM_CONTAINER_ID = 'GTM-ND35KXQL';
+const GTM_STAPE_DOMAIN = 'load.scripte.easytocookmeals.com';
+const GTM_STAPE_ENCODED = 'bbeb=ChdWMiA8VDQnQF4%2BLCA1XBVOWVtFVx0UXhYKBg0FFhkMHAAYERAVCU0QBBg%3D';
 
-// Analytics subdomains
-const PLAUSIBLE_DOMAIN = 'applause.easytocookmeals.com';
-const UMAMI_DOMAIN = 'umami.easytocookmeals.com';
-const STAPE_DOMAIN = 'scripte.easytocookmeals.com'; // Server-side GTM
-const UMAMI_WEBSITE_ID = ''; // Will be set after Umami setup
+// Plausible Config (self-hosted)
+const PLAUSIBLE_DOMAIN = 'applause.adhd-founder.com';
+const PLAUSIBLE_SITE = 'easytocookmeals.com';
+
+// Umami Config (self-hosted)
+const UMAMI_DOMAIN = 'umami.adhd-founder.com';
+const UMAMI_WEBSITE_ID = '4bd7a9c3-7c5d-4793-9403-ee9f23dce4a0';
 
 export default function Analytics() {
   useEffect(() => {
@@ -42,54 +45,33 @@ export default function Analytics() {
       ad_personalization: 'granted',
       region: ['US', 'CA', 'AU', 'NZ', 'JP', 'KR', 'SG', 'HK', 'TW'],
     });
-
-    // Initialize GTM
-    if (GTM_ID) {
-      gtag('js', new Date());
-      window.dataLayer.push({
-        'gtm.start': new Date().getTime(),
-        event: 'gtm.js'
-      });
-    }
   }, []);
 
   return (
     <>
-      {/* Google Tag Manager */}
-      {GTM_ID && (
-        <Script
-          id="gtm-script"
-          strategy="afterInteractive"
-          src={`https://www.googletagmanager.com/gtm.js?id=${GTM_ID}`}
-        />
-      )}
-
-      {/* Fallback: Direct GA4 if no GTM */}
-      {!GTM_ID && GA_ID && (
-        <>
-          <Script
-            src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
-            strategy="afterInteractive"
-          />
-          <Script
-            id="ga4-config"
-            strategy="afterInteractive"
-          >
-            {`
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', '${GA_ID}');
-            `}
-          </Script>
-        </>
-      )}
+      {/* Google Tag Manager (Server-Side via Stape) */}
+      <Script
+        id="gtm-script"
+        strategy="afterInteractive"
+      >
+        {`
+          (function(w,d,s,l,i){
+            w[l]=w[l]||[];
+            w[l].push({'gtm.start': new Date().getTime(), event:'gtm.js'});
+            var f=d.getElementsByTagName(s)[0],
+                j=d.createElement(s);
+            j.async=true;
+            j.src="https://${GTM_STAPE_DOMAIN}/4bz9szyqtuksc.js?"+i;
+            f.parentNode.insertBefore(j,f);
+          })(window,document,'script','dataLayer','${GTM_STAPE_ENCODED}');
+        `}
+      </Script>
 
       {/* Plausible Analytics (GDPR-compliant, cookieless) */}
       <Script
         defer
-        data-domain="easytocookmeals.com"
-        src={`https://${PLAUSIBLE_DOMAIN}/js/script.file-downloads.hash.outbound-links.pageview-props.tagged-events.js`}
+        data-domain={PLAUSIBLE_SITE}
+        src={`https://${PLAUSIBLE_DOMAIN}/js/script.file-downloads.hash.outbound-links.pageview-props.revenue.tagged-events.js`}
         strategy="afterInteractive"
       />
       <Script id="plausible-helper" strategy="afterInteractive">
@@ -97,17 +79,18 @@ export default function Analytics() {
       </Script>
 
       {/* Umami Analytics (cookieless, privacy-focused) */}
-      {UMAMI_WEBSITE_ID && (
-        <Script
-          defer
-          src={`https://${UMAMI_DOMAIN}/script.js`}
-          data-website-id={UMAMI_WEBSITE_ID}
-          strategy="afterInteractive"
-        />
-      )}
+      <Script
+        defer
+        src={`https://${UMAMI_DOMAIN}/script.js`}
+        data-website-id={UMAMI_WEBSITE_ID}
+        strategy="afterInteractive"
+      />
     </>
   );
 }
+
+// GTM Container ID export for noscript iframe
+export const GTM_NOSCRIPT_URL = `https://${GTM_STAPE_DOMAIN}/ns.html?id=${GTM_CONTAINER_ID}`;
 
 // Type declaration
 declare global {

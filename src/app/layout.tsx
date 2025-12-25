@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Fraunces, Source_Serif_4, Caveat } from "next/font/google";
 import "./globals.css";
-import Analytics from "@/components/Analytics";
+import Analytics, { GTM_NOSCRIPT_URL } from "@/components/Analytics";
 import CookieBanner from "@/components/CookieBanner";
 
 // Display font: Fraunces - warm editorial serif with personality (TrueBrew Design System)
@@ -20,7 +20,7 @@ const sourceSerif = Source_Serif_4({
   display: "swap",
 });
 
-// Accent font: Caveat - handwritten warmth for Nora's personal touches
+// Accent font: Caveat - handwritten warmth for personal touches
 const caveat = Caveat({
   subsets: ["latin"],
   weight: ["400", "600"],
@@ -31,10 +31,10 @@ const caveat = Caveat({
 export const metadata: Metadata = {
   metadataBase: new URL('https://easytocookmeals.com'),
   title: {
-    default: "Easy to Cook Meals - Vegan Recipes by Nora",
+    default: "Easy to Cook Meals - Plant-Based Recipes by Sandra & Jan",
     template: "%s | Easy to Cook Meals"
   },
-  description: "Discover authentic vegan recipes from Nora, a digital nomad chef traveling the world. Plant-based cooking made easy with Middle Eastern flavors, global inspiration, and stories from Tel Aviv to your kitchen.",
+  description: "Discover authentic plant-based recipes from Sandra & Jan. Easy vegan cooking with Middle Eastern flavors, global inspiration, and stories from Tel Aviv to your kitchen.",
   keywords: [
     "vegan recipes",
     "plant-based cooking",
@@ -42,15 +42,15 @@ export const metadata: Metadata = {
     "israeli cuisine",
     "authentic falafel",
     "vegan chef",
-    "digital nomad recipes",
     "easy vegan meals",
     "mediterranean vegan",
-    "travel inspired recipes"
+    "travel inspired recipes",
+    "healthy recipes"
   ],
-  authors: [{ name: "Nora", url: "https://easytocookmeals.com/about" }],
-  creator: "Nora",
+  authors: [{ name: "Sandra & Jan", url: "https://easytocookmeals.com/about" }],
+  creator: "Sandra & Jan",
   openGraph: {
-    title: "Easy to Cook Meals - Vegan Recipes by Nora",
+    title: "Easy to Cook Meals - Plant-Based Recipes by Sandra & Jan",
     description: "Plant-based recipes with heart, inspired by travels and traditions from Tel Aviv to kitchens around the world.",
     type: "website",
     locale: "en_US",
@@ -67,9 +67,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Easy to Cook Meals - Vegan Recipes by Nora",
+    title: "Easy to Cook Meals - Plant-Based Recipes by Sandra & Jan",
     description: "Plant-based recipes with heart, inspired by travels from around the world.",
-    creator: "@easytocookmeals",
+    creator: "@janshellskitchen",
     images: ["/images/brand/logo.png"]
   },
   robots: {
@@ -93,6 +93,15 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${fraunces.variable} ${sourceSerif.variable} ${caveat.variable}`}>
       <body className="antialiased">
+        {/* GTM noscript fallback for users without JavaScript */}
+        <noscript>
+          <iframe
+            src={GTM_NOSCRIPT_URL}
+            height="0"
+            width="0"
+            style={{ display: 'none', visibility: 'hidden' }}
+          />
+        </noscript>
         <Analytics />
         {children}
         <CookieBanner />
