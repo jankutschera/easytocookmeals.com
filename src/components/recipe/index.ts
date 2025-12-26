@@ -11,3 +11,4 @@ export { RecipeRating } from './RecipeRating';
 export { RecipeMeta } from './RecipeMeta';
 export { JumpToRecipeButton } from './JumpToRecipeButton';
 export { RecipeJsonLd } from './RecipeJsonLd';
+export { ArticleContent } from './ArticleContent';

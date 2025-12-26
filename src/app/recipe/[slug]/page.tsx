@@ -8,6 +8,7 @@ import { getBlogContent } from '@/lib/blog-content';
 import { RecipeCard } from '@/components/recipe/RecipeCard';
 import { RecipeJsonLd } from '@/components/recipe/RecipeJsonLd';
 import { JumpToRecipeButton } from '@/components/recipe/JumpToRecipeButton';
+import { ArticleContent } from '@/components/recipe/ArticleContent';
 import { BackToTopButton } from '@/components/ui/BackToTopButton';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
@@ -295,48 +296,10 @@ export default async function RecipePage({ params }: PageProps) {
                       );
                     })}
                   </div>
-                ) : (
-                  // Recipe story with markdown support
-                  <div className="space-y-6">
-                    {recipe.story?.split('\n\n').map((paragraph, index) => {
-                      const trimmed = paragraph.trim();
-                      if (!trimmed) return null;
-
-                      // Check for ## heading
-                      if (trimmed.startsWith('## ')) {
-                        return (
-                          <h3 key={index} className="font-display text-xl md:text-2xl font-normal text-ink mt-8 mb-4">
-                            {trimmed.replace('## ', '')}
-                          </h3>
-                        );
-                      }
-                      // Check for ### heading
-                      if (trimmed.startsWith('### ')) {
-                        return (
-                          <h4 key={index} className="font-display text-lg md:text-xl font-normal text-ink mt-6 mb-3">
-                            {trimmed.replace('### ', '')}
-                          </h4>
-                        );
-                      }
-                      // First paragraph gets drop cap styling
-                      if (index === 0) {
-                        return (
-                          <p
-                            key={index}
-                            className="text-xl md:text-2xl text-ink-light leading-relaxed font-body first-letter:text-7xl first-letter:font-display first-letter:font-normal first-letter:text-terracotta-500 first-letter:float-left first-letter:mr-3 first-letter:leading-none first-letter:mt-1"
-                          >
-                            {trimmed}
-                          </p>
-                        );
-                      }
-                      return (
-                        <p key={index} className="text-lg md:text-xl text-ink-light leading-relaxed font-body">
-                          {trimmed}
-                        </p>
-                      );
-                    })}
-                  </div>
-                )}
+                ) : recipe.story ? (
+                  // Recipe story with full markdown support
+                  <ArticleContent content={recipe.story} />
+                ) : null}
               </div>
 
               {/* Decorative divider */}
