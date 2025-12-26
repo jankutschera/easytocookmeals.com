@@ -12,6 +12,9 @@ import { BackToTopButton } from '@/components/ui/BackToTopButton';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 
+// Revalidate every 60 seconds for fresh data from database
+export const revalidate = 60;
+
 interface PageProps {
   params: Promise<{ slug: string }>;
 }
