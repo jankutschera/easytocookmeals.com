@@ -9,6 +9,7 @@ import { RecipeCard } from '@/components/recipe/RecipeCard';
 import { RecipeJsonLd } from '@/components/recipe/RecipeJsonLd';
 import { JumpToRecipeButton } from '@/components/recipe/JumpToRecipeButton';
 import { ArticleContent } from '@/components/recipe/ArticleContent';
+import { RecipeActions } from '@/components/recipe/RecipeActions';
 import { BackToTopButton } from '@/components/ui/BackToTopButton';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
@@ -333,26 +334,11 @@ export default async function RecipePage({ params }: PageProps) {
               <p className="text-ink-muted mb-6 font-body">
                 Share it with friends or save it for later
               </p>
-              <div className="flex flex-wrap justify-center gap-3">
-                <button className="inline-flex items-center gap-2 px-6 py-3 bg-ink hover:bg-terracotta-600 text-white font-body font-medium rounded-organic transition-all hover:shadow-warm-lg">
-                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z" />
-                  </svg>
-                  Share
-                </button>
-                <button className="inline-flex items-center gap-2 px-6 py-3 bg-white hover:bg-terracotta-50 text-ink font-body font-medium rounded-organic transition-all border-2 border-sand-300 hover:border-terracotta-300">
-                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" />
-                  </svg>
-                  Save
-                </button>
-                <button className="inline-flex items-center gap-2 px-6 py-3 bg-white hover:bg-terracotta-50 text-ink font-body font-medium rounded-organic transition-all border-2 border-sand-300 hover:border-terracotta-300">
-                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
-                  </svg>
-                  Print
-                </button>
-              </div>
+              <RecipeActions
+                title={recipe.title}
+                url={url}
+                recipeId={recipe.id}
+              />
             </div>
           </section>
         </article>
