@@ -36,6 +36,17 @@ interface RewrittenRecipe {
     step: number;
     text: string;
   }[];
+  nutrition?: {
+    serving_size: string;
+    calories: number;
+    carbs_g: number;
+    protein_g: number;
+    fat_g: number;
+    saturated_fat_g: number;
+    fiber_g: number;
+    sugar_g: number;
+    sodium_mg: number;
+  };
   featured_image_url?: string;
 }
 
@@ -128,6 +139,30 @@ export async function saveRecipeDraft(recipe: RewrittenRecipe): Promise<any> {
 
   if (instError) {
     console.error('Instructions insert error:', instError);
+  }
+
+  // 4. Insert nutrition if provided
+  if (recipe.nutrition) {
+    const { error: nutritionError } = await supabase
+      .from('nutrition')
+      .insert({
+        recipe_id: recipeId,
+        serving_size: recipe.nutrition.serving_size,
+        calories: recipe.nutrition.calories,
+        carbs_g: recipe.nutrition.carbs_g,
+        protein_g: recipe.nutrition.protein_g,
+        fat_g: recipe.nutrition.fat_g,
+        saturated_fat_g: recipe.nutrition.saturated_fat_g,
+        fiber_g: recipe.nutrition.fiber_g,
+        sugar_g: recipe.nutrition.sugar_g,
+        sodium_mg: recipe.nutrition.sodium_mg,
+      });
+
+    if (nutritionError) {
+      console.error('Nutrition insert error:', nutritionError);
+    } else {
+      console.log('✅ Nutrition saved');
+    }
   }
 
   return recipeRow;

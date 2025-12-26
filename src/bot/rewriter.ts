@@ -41,6 +41,17 @@ interface RewrittenRecipe {
     step: number;
     text: string;
   }[];
+  nutrition: {
+    serving_size: string;
+    calories: number;
+    carbs_g: number;
+    protein_g: number;
+    fat_g: number;
+    saturated_fat_g: number;
+    fiber_g: number;
+    sugar_g: number;
+    sodium_mg: number;
+  };
   featured_image_url?: string;
 }
 
@@ -148,8 +159,26 @@ Return a JSON object with this exact structure:
   ],
   "instructions": [
     {"step": 1, "text": "Full instruction text rewritten in our voice"}
-  ]
+  ],
+  "nutrition": {
+    "serving_size": "1 serving" or "1 cup" etc.,
+    "calories": <number - estimated calories per serving>,
+    "carbs_g": <number - grams of carbohydrates>,
+    "protein_g": <number - grams of protein>,
+    "fat_g": <number - total fat in grams>,
+    "saturated_fat_g": <number - saturated fat in grams>,
+    "fiber_g": <number - fiber in grams>,
+    "sugar_g": <number - sugar in grams>,
+    "sodium_mg": <number - sodium in milligrams>
+  }
 }
+
+NUTRITION CALCULATION:
+Estimate nutrition facts per serving based on the ingredients. Use standard nutritional databases as reference. Be realistic - vegan recipes typically have:
+- Lower saturated fat (mostly from coconut/palm)
+- Good fiber content
+- Protein from legumes, tofu, tempeh, nuts
+Round to reasonable numbers (no decimals needed).
 
 Ensure ALL ingredients are vegan. Replace any non-vegan items with plant-based alternatives.`;
 
