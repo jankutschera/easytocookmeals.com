@@ -27,8 +27,8 @@ WRITING STYLE:
 - Active voice
 - Personal anecdotes and real experiences`;
 
-async function updateLatestRecipe() {
-  // Get the most recent draft recipe
+async function updateAllRecipes() {
+  // Get all recipes
   const { data: recipes, error } = await supabase
     .from('recipes')
     .select(`
@@ -39,20 +39,34 @@ async function updateLatestRecipe() {
       servings,
       status
     `)
-    .order('created_at', { ascending: false })
-    .limit(5);
+    .order('created_at', { ascending: false });
 
   if (error || !recipes?.length) {
     console.error('No recipes found:', error);
     return;
   }
 
-  console.log('Recent recipes:');
-  recipes.forEach((r, i) => console.log(`${i + 1}. [${r.status}] ${r.title}`));
+  // Check which recipes already have nutrition
+  const { data: existingNutrition } = await supabase
+    .from('nutrition')
+    .select('recipe_id');
 
-  // Get the most recent one (or filter for draft)
-  const recipe = recipes[0];
-  console.log(`\n📝 Updating: ${recipe.title} (${recipe.id})`);
+  const recipesWithNutrition = new Set(existingNutrition?.map(n => n.recipe_id) || []);
+
+  const recipesToUpdate = recipes.filter(r => !recipesWithNutrition.has(r.id));
+
+  console.log(`📊 Total recipes: ${recipes.length}`);
+  console.log(`✅ Already have nutrition: ${recipesWithNutrition.size}`);
+  console.log(`📝 Need nutrition: ${recipesToUpdate.length}\n`);
+
+  if (recipesToUpdate.length === 0) {
+    console.log('All recipes already have nutrition!');
+    return;
+  }
+
+  for (const recipe of recipesToUpdate) {
+    console.log(`\n${'='.repeat(60)}`);
+    console.log(`📝 Processing: ${recipe.title}`);
 
   // Get ingredients for this recipe
   const { data: groups } = await supabase
@@ -125,7 +139,7 @@ Return JSON:
   const jsonMatch = text.match(/\{[\s\S]*\}/);
   if (!jsonMatch) {
     console.error('No JSON found in response');
-    return;
+    continue;
   }
 
   const result = JSON.parse(jsonMatch[0]);
@@ -197,7 +211,12 @@ Return JSON:
     }
   }
 
-  console.log('\n🎉 Done!');
+    // Add delay to avoid rate limiting
+    console.log('⏳ Waiting 2 seconds before next recipe...');
+    await new Promise(resolve => setTimeout(resolve, 2000));
+  }
+
+  console.log('\n🎉 All recipes updated!');
 }
 
-updateLatestRecipe().catch(console.error);
+updateAllRecipes().catch(console.error);

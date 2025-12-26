@@ -13,7 +13,6 @@ import { RecipeMeta } from './RecipeMeta';
 import { JumpToRecipeButton } from './JumpToRecipeButton';
 import { UnitToggle } from './UnitToggle';
 import { CookMode } from './CookMode';
-import { StoryContent } from './StoryContent';
 
 // Type for ingredient groups with guaranteed ingredients array
 type IngredientGroupWithIngredients = IngredientGroup & {
@@ -163,13 +162,6 @@ export function RecipeCard({
           cuisine={recipe.cuisine}
           course={recipe.course}
         />
-
-        {/* Story section */}
-        {recipe.story && (
-          <section className="prose prose-lg max-w-none">
-            <StoryContent content={recipe.story} />
-          </section>
-        )}
 
         {/* Servings adjuster and unit toggle */}
         <div className="flex flex-wrap gap-4 items-center justify-between p-4 bg-sand-50 rounded-xl border border-sand-200">
