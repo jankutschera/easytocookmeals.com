@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { revalidatePath } from 'next/cache';
 import { updateRecipeStatus } from '@/lib/admin';
 
 interface RouteContext {
@@ -20,6 +21,10 @@ export async function PATCH(request: NextRequest, context: RouteContext) {
     }
 
     await updateRecipeStatus(id, status);
+
+    // Revalidate admin page to show updated status
+    revalidatePath('/admin');
+
     return NextResponse.json({ success: true, status });
   } catch (error: any) {
     return NextResponse.json({ error: error.message }, { status: 500 });

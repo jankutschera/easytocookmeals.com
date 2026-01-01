@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { revalidatePath } from 'next/cache';
 import { deleteRecipe, getRecipeById, updateRecipe } from '@/lib/admin';
 
 interface RouteContext {
@@ -27,6 +28,10 @@ export async function PATCH(request: NextRequest, context: RouteContext) {
   try {
     const data = await request.json();
     await updateRecipe(id, data);
+
+    // Revalidate admin page to show updated data
+    revalidatePath('/admin');
+
     return NextResponse.json({ success: true });
   } catch (error: any) {
     return NextResponse.json({ error: error.message }, { status: 500 });
@@ -39,6 +44,10 @@ export async function DELETE(request: NextRequest, context: RouteContext) {
 
   try {
     await deleteRecipe(id);
+
+    // Revalidate admin page after deletion
+    revalidatePath('/admin');
+
     return NextResponse.json({ success: true });
   } catch (error: any) {
     return NextResponse.json({ error: error.message }, { status: 500 });

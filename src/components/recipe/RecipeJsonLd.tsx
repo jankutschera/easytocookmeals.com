@@ -12,6 +12,7 @@ export function RecipeJsonLd({ recipe, url }: RecipeJsonLdProps) {
     (recipe.rest_time_minutes || 0);
 
   // Collect all ingredients as strings for schema
+  // Filter out empty/too short strings (Google requires 1-500 chars)
   const ingredients = recipe.ingredient_groups.flatMap((group) =>
     (group.ingredients || []).map((ing) => {
       let str = '';
@@ -21,21 +22,40 @@ export function RecipeJsonLd({ recipe, url }: RecipeJsonLdProps) {
       if (ing.notes) str += ` (${ing.notes})`;
       return str.trim();
     })
-  );
+  ).filter((ing) => ing.length >= 1 && ing.length <= 500);
 
   // Format instructions for schema
+  // Add image fallback to featured image if no step image
   const instructions = recipe.instructions.map((inst) => ({
     '@type': 'HowToStep',
     name: `Step ${inst.step_number}`,
     text: inst.text,
-    ...(inst.image_url && { image: inst.image_url }),
+    // Use step image if available, otherwise use featured image
+    image: inst.image_url || recipe.featured_image_url || undefined,
   }));
+
+  // Build keywords - combine explicit keywords with cuisine/course for better SEO
+  const keywordParts: string[] = [];
+  if (recipe.keywords && recipe.keywords.length > 0) {
+    keywordParts.push(...recipe.keywords);
+  }
+  if (recipe.cuisine && recipe.cuisine.length > 0) {
+    keywordParts.push(...recipe.cuisine);
+  }
+  if (recipe.course && recipe.course.length > 0) {
+    keywordParts.push(...recipe.course);
+  }
+  // Add default keywords if none exist
+  if (keywordParts.length === 0) {
+    keywordParts.push('vegan', 'recipe', 'easy');
+  }
+  const keywords = [...new Set(keywordParts)].join(', ');
 
   const jsonLd = {
     '@context': 'https://schema.org/',
     '@type': 'Recipe',
     name: recipe.title,
-    description: recipe.description,
+    description: recipe.description || `Easy vegan ${recipe.title} recipe`,
     image: recipe.featured_image_url
       ? [recipe.featured_image_url, recipe.pinterest_image_url].filter(Boolean)
       : undefined,
@@ -58,7 +78,7 @@ export function RecipeJsonLd({ recipe, url }: RecipeJsonLdProps) {
       : undefined,
     recipeCategory: recipe.course,
     recipeCuisine: recipe.cuisine,
-    keywords: recipe.keywords?.join(', '),
+    keywords: keywords,
     recipeIngredient: ingredients,
     recipeInstructions: instructions,
     nutrition: recipe.nutrition
@@ -91,11 +111,13 @@ export function RecipeJsonLd({ recipe, url }: RecipeJsonLdProps) {
             : undefined,
         }
       : undefined,
+    // Only include aggregateRating if we have BOTH ratingValue AND ratingCount
+    // This is required by Google's structured data guidelines
     aggregateRating:
-      recipe.rating_count && recipe.rating_count > 0
+      recipe.rating_count && recipe.rating_count > 0 && recipe.average_rating
         ? {
             '@type': 'AggregateRating',
-            ratingValue: recipe.average_rating?.toFixed(1),
+            ratingValue: Number(recipe.average_rating.toFixed(1)),
             ratingCount: recipe.rating_count,
             bestRating: 5,
             worstRating: 1,

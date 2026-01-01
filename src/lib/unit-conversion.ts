@@ -3,22 +3,24 @@
  * Supports Metric ↔ US conversions
  */
 
+// Units that are universal and should NOT be converted
+// tbsp/tsp are understood worldwide and converting to ml creates awkward numbers
+const UNIVERSAL_UNITS = new Set([
+  'tablespoon', 'tablespoons', 'tbsp',
+  'teaspoon', 'teaspoons', 'tsp',
+  'pinch', 'dash', 'handful',
+]);
+
 // Conversion rates (to metric)
 const CONVERSIONS: Record<string, { metricUnit: string; metricRate: number }> = {
-  // Volume
-  cup: { metricUnit: 'ml', metricRate: 236.588 },
-  cups: { metricUnit: 'ml', metricRate: 236.588 },
-  tablespoon: { metricUnit: 'ml', metricRate: 14.787 },
-  tablespoons: { metricUnit: 'ml', metricRate: 14.787 },
-  tbsp: { metricUnit: 'ml', metricRate: 14.787 },
-  teaspoon: { metricUnit: 'ml', metricRate: 4.929 },
-  teaspoons: { metricUnit: 'ml', metricRate: 4.929 },
-  tsp: { metricUnit: 'ml', metricRate: 4.929 },
-  'fluid ounce': { metricUnit: 'ml', metricRate: 29.574 },
-  'fl oz': { metricUnit: 'ml', metricRate: 29.574 },
-  pint: { metricUnit: 'ml', metricRate: 473.176 },
-  quart: { metricUnit: 'ml', metricRate: 946.353 },
-  gallon: { metricUnit: 'l', metricRate: 3.785 },
+  // Volume - cups need conversion, but tbsp/tsp are universal
+  cup: { metricUnit: 'ml', metricRate: 240 }, // Rounded for nicer numbers
+  cups: { metricUnit: 'ml', metricRate: 240 },
+  'fluid ounce': { metricUnit: 'ml', metricRate: 30 },
+  'fl oz': { metricUnit: 'ml', metricRate: 30 },
+  pint: { metricUnit: 'ml', metricRate: 475 },
+  quart: { metricUnit: 'ml', metricRate: 950 },
+  gallon: { metricUnit: 'l', metricRate: 3.8 },
 
   // Weight
   ounce: { metricUnit: 'g', metricRate: 28.35 },
