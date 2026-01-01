@@ -5,6 +5,15 @@ interface RecipeJsonLdProps {
   url: string;
 }
 
+// Convert relative URLs to absolute URLs for structured data
+function toAbsoluteUrl(path: string | null | undefined, baseUrl: string): string | undefined {
+  if (!path) return undefined;
+  if (path.startsWith('http://') || path.startsWith('https://')) return path;
+  // Extract origin from the full URL
+  const origin = new URL(baseUrl).origin;
+  return `${origin}${path.startsWith('/') ? '' : '/'}${path}`;
+}
+
 export function RecipeJsonLd({ recipe, url }: RecipeJsonLdProps) {
   const totalTime =
     (recipe.prep_time_minutes || 0) +
@@ -30,8 +39,8 @@ export function RecipeJsonLd({ recipe, url }: RecipeJsonLdProps) {
     '@type': 'HowToStep',
     name: `Step ${inst.step_number}`,
     text: inst.text,
-    // Use step image if available, otherwise use featured image
-    image: inst.image_url || recipe.featured_image_url || undefined,
+    // Use step image if available, otherwise use featured image (absolute URLs required)
+    image: toAbsoluteUrl(inst.image_url || recipe.featured_image_url, url),
   }));
 
   // Build keywords - combine explicit keywords with cuisine/course for better SEO
@@ -51,14 +60,18 @@ export function RecipeJsonLd({ recipe, url }: RecipeJsonLdProps) {
   }
   const keywords = [...new Set(keywordParts)].join(', ');
 
+  // Build absolute image URLs for structured data
+  const imageUrls = [
+    toAbsoluteUrl(recipe.featured_image_url, url),
+    toAbsoluteUrl(recipe.pinterest_image_url, url),
+  ].filter(Boolean);
+
   const jsonLd = {
     '@context': 'https://schema.org/',
     '@type': 'Recipe',
     name: recipe.title,
     description: recipe.description || `Easy vegan ${recipe.title} recipe`,
-    image: recipe.featured_image_url
-      ? [recipe.featured_image_url, recipe.pinterest_image_url].filter(Boolean)
-      : undefined,
+    image: imageUrls.length > 0 ? imageUrls : undefined,
     author: {
       '@type': 'Person',
       name: 'Easy To Cook Meals',
@@ -84,7 +97,7 @@ export function RecipeJsonLd({ recipe, url }: RecipeJsonLdProps) {
     nutrition: recipe.nutrition
       ? {
           '@type': 'NutritionInformation',
-          servingSize: recipe.nutrition.serving_size,
+          servingSize: recipe.nutrition.serving_size || undefined,
           calories: recipe.nutrition.calories
             ? `${recipe.nutrition.calories} calories`
             : undefined,
