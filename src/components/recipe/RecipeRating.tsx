@@ -94,44 +94,19 @@ export function RecipeRating({
     </div>
   );
 
-  // Only add microdata when we have valid rating data
-  // This prevents Google errors about missing ratingValue/ratingCount
-  if (ratingCount > 0 && averageRating > 0) {
-    return (
-      <div
-        className="flex items-center gap-3"
-        itemProp="aggregateRating"
-        itemScope
-        itemType="https://schema.org/AggregateRating"
-      >
-        {starsElement}
-        <div className="text-sm">
-          {hasRated ? (
-            <span className="text-green-600 font-medium">Thanks for rating!</span>
-          ) : (
-            <span className="text-gray-600">
-              <span className="font-semibold text-gray-900" itemProp="ratingValue">
-                {averageRating.toFixed(1)}
-              </span>{' '}
-              from{' '}
-              <span itemProp="ratingCount">{ratingCount}</span>{' '}
-              {ratingCount === 1 ? 'rating' : 'ratings'}
-            </span>
-          )}
-        </div>
-        <meta itemProp="bestRating" content="5" />
-        <meta itemProp="worstRating" content="1" />
-      </div>
-    );
-  }
-
-  // No ratings yet - don't add microdata to avoid Google errors
   return (
     <div className="flex items-center gap-3">
       {starsElement}
       <div className="text-sm">
         {hasRated ? (
           <span className="text-green-600 font-medium">Thanks for rating!</span>
+        ) : ratingCount > 0 && averageRating > 0 ? (
+          <span className="text-gray-600">
+            <span className="font-semibold text-gray-900">
+              {averageRating.toFixed(1)}
+            </span>{' '}
+            from {ratingCount} {ratingCount === 1 ? 'rating' : 'ratings'}
+          </span>
         ) : (
           <span className="text-gray-500">Be the first to rate!</span>
         )}

@@ -18,7 +18,7 @@ export function InstructionSteps({
   );
 
   return (
-    <ol className="space-y-6" itemProp="recipeInstructions">
+    <ol className="space-y-6">
       {sortedInstructions.map((instruction, idx) => {
         const isChecked = checkedSteps.has(instruction.step_number);
         const isNext = !isChecked &&
@@ -32,9 +32,6 @@ export function InstructionSteps({
             className={`relative pl-14 transition-opacity ${
               isChecked ? 'opacity-50' : ''
             }`}
-            itemProp="step"
-            itemScope
-            itemType="https://schema.org/HowToStep"
           >
             {/* Step number circle */}
             <button
@@ -73,7 +70,6 @@ export function InstructionSteps({
                 className={`text-gray-700 leading-relaxed ${
                   isChecked ? 'line-through text-gray-400' : ''
                 }`}
-                itemProp="text"
               >
                 {instruction.text}
               </p>
@@ -84,7 +80,6 @@ export function InstructionSteps({
                   src={instruction.image_url}
                   alt={`Step ${instruction.step_number}`}
                   className="rounded-lg w-full max-w-md shadow-sm"
-                  itemProp="image"
                 />
               )}
 

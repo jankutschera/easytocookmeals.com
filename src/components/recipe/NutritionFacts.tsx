@@ -38,12 +38,7 @@ export function NutritionFacts({ nutrition, servingsMultiplier = 1 }: NutritionF
   ].filter(v => v.value !== null && v.value !== undefined);
 
   return (
-    <section
-      className="bg-white border-2 border-gray-900 rounded-xl p-6 max-w-md"
-      itemProp="nutrition"
-      itemScope
-      itemType="https://schema.org/NutritionInformation"
-    >
+    <section className="bg-white border-2 border-gray-900 rounded-xl p-6 max-w-md">
       <h3 className="font-heading text-2xl text-gray-900 border-b-8 border-gray-900 pb-2 mb-2">
         Nutrition Facts
       </h3>
@@ -92,14 +87,6 @@ export function NutritionFacts({ nutrition, servingsMultiplier = 1 }: NutritionF
         </div>
       )}
 
-      {/* Schema.org metadata */}
-      <meta itemProp="calories" content={`${nutrition.calories || 0} calories`} />
-      <meta itemProp="carbohydrateContent" content={`${nutrition.carbs_g || 0} g`} />
-      <meta itemProp="proteinContent" content={`${nutrition.protein_g || 0} g`} />
-      <meta itemProp="fatContent" content={`${nutrition.fat_g || 0} g`} />
-      <meta itemProp="fiberContent" content={`${nutrition.fiber_g || 0} g`} />
-      <meta itemProp="sodiumContent" content={`${nutrition.sodium_mg || 0} mg`} />
-      <meta itemProp="sugarContent" content={`${nutrition.sugar_g || 0} g`} />
     </section>
   );
 }

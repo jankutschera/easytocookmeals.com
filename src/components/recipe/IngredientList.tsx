@@ -24,7 +24,7 @@ export function IngredientList({
   onToggleIngredient,
 }: IngredientListProps) {
   return (
-    <div className="space-y-6" itemProp="recipeIngredient">
+    <div className="space-y-6">
       {groups.map((group) => (
         <div key={group.id} className="space-y-3">
           {/* Group title */}

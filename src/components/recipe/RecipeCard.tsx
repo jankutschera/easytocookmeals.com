@@ -77,26 +77,7 @@ export function RecipeCard({
     <article
       id="recipe-card"
       className="bg-white rounded-2xl shadow-lg overflow-hidden max-w-4xl mx-auto"
-      itemScope
-      itemType="https://schema.org/Recipe"
     >
-      {/* Hidden schema.org metadata */}
-      <meta itemProp="name" content={recipe.title} />
-      <meta itemProp="description" content={recipe.description || ''} />
-      {recipe.featured_image_url && (
-        <meta itemProp="image" content={recipe.featured_image_url} />
-      )}
-      <meta itemProp="prepTime" content={`PT${recipe.prep_time_minutes || 0}M`} />
-      <meta itemProp="cookTime" content={`PT${recipe.cook_time_minutes || 0}M`} />
-      <meta itemProp="totalTime" content={`PT${totalTime}M`} />
-      <meta itemProp="recipeYield" content={`${recipe.servings} ${recipe.servings_unit || 'servings'}`} />
-      {recipe.cuisine?.map((c, i) => (
-        <meta key={i} itemProp="recipeCuisine" content={c} />
-      ))}
-      {recipe.course?.map((c, i) => (
-        <meta key={i} itemProp="recipeCategory" content={c} />
-      ))}
-
       {/* Header with image */}
       {recipe.featured_image_url && (
         <div className="relative aspect-video w-full">
